@@ -19,6 +19,9 @@ RULES = [
     (re.compile(r"find\s+.*-name", re.I), "enumeration"),
     (re.compile(r"chmod\s+\+x", re.I), "persistence_or_filesystem"),
     (re.compile(r"(uname|lsb_release|hostname|ifconfig|ip addr|dpkg -l)", re.I), "reconnaissance"),
+    (re.compile(r"(sudo\s+su|linpeas|dirtycow|pkexec)", re.I), "privilege_escalation"),
+    (re.compile(r"(tar.*curl.*upload|/etc/shadow.*exfil|mysqldump.*ftp)", re.I), "data_exfiltration"),
+    (re.compile(r"(psexec|wmic.*process\s+call|proxychains\s+ssh)", re.I), "lateral_movement"),
 ]
 
 def rule_based(log_text):

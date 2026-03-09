@@ -1,74 +1,31 @@
 # suggestions.py
+from google import genai
+import os
+import json
+from dotenv import load_dotenv
 
-SUGGESTIONS = {
+# Load environment variables from a .env file if present
+load_dotenv()
+
+# Retrieve API key from environment variable
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
+
+client = None
+if GEMINI_API_KEY:
+    client = genai.Client(api_key=GEMINI_API_KEY)
+
+# Define a fallback dictionary in case the API fails or is not configured
+FALLBACK_SUGGESTIONS = {
     "malware_download": {
         "summary": "Attacker attempted to fetch and execute remote payload(s).",
-        "severity": 8,
         "recommendations": [
             "Block outgoing HTTP(S) to known malicious domains or apply egress filtering.",
             "Scan the filesystem for newly downloaded files and quarantine them.",
-            "Harden execution permissions (use AppArmor/SELinux) and disallow execution from /tmp.",
-            "Check process list and network connections for suspicious processes."
-        ]
-    },
-    "reverse_shell": {
-        "summary": "Attacker attempted to establish a reverse shell connection to an external host.",
-        "severity": 9,
-        "recommendations": [
-            "Block outbound connections on uncommon ports.",
-            "Monitor for reverse-shell patterns (nc -e, python sockets, bash -i >& /dev/tcp).",
-            "Capture memory/process for forensic analysis.",
-            "Isolate the host from network and rotate credentials if persistence suspected."
-        ]
-    },
-    "reconnaissance": {
-        "summary": "Attacker enumerated local files and system info (reconnaissance).",
-        "severity": 4,
-        "recommendations": [
-            "Restrict reading of sensitive files to privileged users.",
-            "Log and alert on attempts to read /etc/passwd, /etc/shadow, or system files.",
-            "Harden service banners and remove unnecessary tools from exposed hosts."
-        ]
-    },
-    "brute_force": {
-        "summary": "Brute-force / credential guessing attempt.",
-        "severity": 6,
-        "recommendations": [
-            "Block IPs with repeated authentication failures.",
-            "Rate-limit login attempts and enable account lockout.",
-            "Use multi-factor authentication where possible."
-        ]
-    },
-    "credential_harvest": {
-        "summary": "Attempt to access or read credential stores (/etc/shadow, config files).",
-        "severity": 9,
-        "recommendations": [
-            "Rotate sensitive credentials and inspect logs for exfiltration.",
-            "Ensure credential files are properly permissioned.",
-            "Alert and isolate host for forensic capture."
-        ]
-    },
-    "enumeration": {
-        "summary": "System/file/service enumeration.",
-        "severity": 5,
-        "recommendations": [
-            "Monitor unusual listing/scanning commands.",
-            "Harden exposed services, remove unnecessary files/tooling.",
-            "Detect automation patterns (fast repeated commands)."
-        ]
-    },
-    "persistence_or_filesystem": {
-        "summary": "Commands indicate attempts to create/modify filesystem for persistence.",
-        "severity": 7,
-        "recommendations": [
-            "Detect and block suspicious cron entries or startup modifications.",
-            "Alert on changes to system-wide startup scripts and monitor /etc/cron*.",
-            "Audit file integrity (tripwire/OSSEC) to detect persistence artifacts."
+            "Harden execution permissions (use AppArmor/SELinux) and disallow execution from /tmp."
         ]
     },
     "unknown": {
         "summary": "Unrecognized or ambiguous command sequence.",
-        "severity": 3,
         "recommendations": [
             "Collect more context (process list, network connections) and re-analyze.",
             "Add rules or labeled examples for the new pattern."
@@ -77,4 +34,44 @@ SUGGESTIONS = {
 }
 
 def get_suggestion(label):
-    return SUGGESTIONS.get(label, SUGGESTIONS['unknown'])
+    if not client:
+        print("Warning: GEMINI_API_KEY not set or client init failed. Using fallback suggestions.")
+        return FALLBACK_SUGGESTIONS.get(label, FALLBACK_SUGGESTIONS['unknown'])
+
+    prompt = f"""
+    You are an expert cybersecurity analyst. An attack of type '{label}' has been detected in a honeypot.
+    Provide a concise, professional summary of what this attack entails,
+    and list 3-4 actionable technical recommendations to mitigate or investigate this attack.
+
+    You MUST respond with ONLY a valid JSON object matching this exact structure:
+    {{
+        "summary": "High-level description of the attack.",
+        "recommendations": [
+            "Recommendation 1",
+            "Recommendation 2",
+            "Recommendation 3"
+        ]
+    }}
+    """
+
+    try:
+        response = client.models.generate_content(
+            model='gemini-2.5-flash',
+            contents=prompt,
+        )
+        # Parse the JSON from the Gemini response
+        res_text = response.text.strip()
+        
+        # Remove markdown JSON wrappers if present
+        if res_text.startswith("```json"):
+            res_text = res_text[7:]
+        if res_text.startswith("```"):
+            res_text = res_text[3:]
+        if res_text.endswith("```"):
+            res_text = res_text[:-3]
+            
+        return json.loads(res_text.strip())
+    except Exception as e:
+        print(f"Error calling Gemini API for suggestions: {e}")
+        return FALLBACK_SUGGESTIONS.get(label, FALLBACK_SUGGESTIONS['unknown'])
+

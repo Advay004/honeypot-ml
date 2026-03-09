@@ -1,119 +1,29 @@
-# ------------------------------
-# Python
-# ------------------------------
-__pycache__/
-*.py[cod]
-*$py.class
-*.so
-*.pyd
-*.pyo
-
-# Distribution / packaging
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
-
-# ------------------------------
-# Virtual Environments
-# ------------------------------
+# Python virtual environments
 honeyvenv/
-.env/
-.venv/
+venv/
 env/
-ENV/
-env.bak/
-venv.bak/
-
-# ------------------------------
-# Environment Variables
-# ------------------------------
+.venv/
 .env
-.env.*
-*.env
 
-# ------------------------------
-# Logs
-# ------------------------------
-*.log
-logs/
-uvicorn.log
-
-# ------------------------------
-# Database
-# ------------------------------
-*.sqlite3
-*.db
-
-# ------------------------------
-# FastAPI / Uvicorn
-# ------------------------------
-*.pid
-*.sock
-
-# ------------------------------
-# Streamlit
-# ------------------------------
-.streamlit/secrets.toml
-.streamlit/*.toml
-
-# ------------------------------
-# Testing / Coverage
-# ------------------------------
-.coverage
-.coverage.*
-.cache
-pytest_cache/
-htmlcov/
-
-# ------------------------------
-# Jupyter Notebook
-# ------------------------------
-.ipynb_checkpoints
-
-# ------------------------------
-# IDEs / Editors
-# ------------------------------
-.vscode/
-.idea/
-*.swp
-*.swo
-*.DS_Store
-
-# ------------------------------
-# OS files
-# ------------------------------
-Thumbs.db
+# MacOS files
 .DS_Store
 
-# ------------------------------
-# MyPy / Type Checking
-# ------------------------------
-.mypy_cache/
-.dmypy.json
-dmypy.json
+# IDE caches
+.idea/
+.vscode/
+__pycache__/
+*.pyc
 
-# ------------------------------
-# Pyre / Pytype
-# ------------------------------
-.pyre/
-.pytype/
+# Local data / runtime outputs
+data/ingested_cowrie.jsonl
+try_gemini.py
+start.sh
+*.log
 
-# ------------------------------
-# Temporary files
-# ------------------------------
-tmp/
-temp/
+# Sensitive environment configuration
+.env
+.env.*
+
+# Machine Learning models (Optional: Un-comment to ignore trained models entirely)
+# models/*.joblib
+# models/*.txt

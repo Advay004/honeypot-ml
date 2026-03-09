@@ -36,6 +36,7 @@ except Exception:
 from sklearn.ensemble import RandomForestClassifier
 
 DATA_PATH = "data/synthetic_honeypot_logs_1000.csv"
+
 MODEL_DIR = "models"
 os.makedirs(MODEL_DIR, exist_ok=True)
 

@@ -38,7 +38,6 @@ async def predict_logs(payload: PredictRequest):
             "label": res["label"],
             "confidence": res["confidence"],
             "summary": res["suggestion"]["summary"],
-            "severity": res["suggestion"]["severity"],
             "recommendations": res["suggestion"]["recommendations"],
             "source": res.get("source")
         })
@@ -51,7 +50,6 @@ async def classify_single(payload: dict):
     res = classify_log(log)
     return {
         "attack_type": res["label"],
-        "severity": res["suggestion"]["severity"],
         "summary": res["suggestion"]["summary"],
         "recommendations": res["suggestion"]["recommendations"]
     }
@@ -119,7 +117,6 @@ async def ingest_cowrie(request: Request):
                 "confidence": 0.0,
                 "suggestion": {
                     "summary": "Cowrie event does not contain an attacker command",
-                    "severity": 0,
                     "recommendations": []
                 }
             }
@@ -132,7 +129,6 @@ async def ingest_cowrie(request: Request):
             "extracted_command": cmd or "<non-command-event>",
             "confidence": res["confidence"],
             "summary": res["suggestion"]["summary"],
-            "severity": res["suggestion"]["severity"],
             "recommendations": res["suggestion"]["recommendations"]
         }
 

