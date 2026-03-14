@@ -1,0 +1,58 @@
+graph TD
+    classDef ui fill:#3b82f6,stroke:#1e3a8a,stroke-width:2px,color:#fff;
+    classDef api fill:#8b5cf6,stroke:#4c1d95,stroke-width:2px,color:#fff;
+    classDef engine fill:#ec4899,stroke:#831843,stroke-width:2px,color:#fff;
+    classDef model fill:#10b981,stroke:#064e3b,stroke-width:2px,color:#fff;
+    classDef db fill:#f59e0b,stroke:#78350f,stroke-width:2px,color:#fff;
+    classDef external fill:#64748b,stroke:#0f172a,stroke-width:2px,color:#fff;
+
+    subgraph "External Sources"
+        A[Cowrie Honeypot\nJSONL Logs]:::external
+        B[Security Analyst\nManual Input]:::external
+    end
+
+    subgraph "Frontend Layer (Port 8501)"
+        C[Streamlit Dashboard\napp.py]:::ui
+    end
+
+    subgraph "API / Backend Layer (Port 8002)"
+        D{FastAPI Router\nmain.py}:::api
+    end
+
+    subgraph "Intelligence Engine"
+        E[Classifier Logic\nclassifier.py]:::engine
+        F{Regex Rules\nFast Path}:::engine
+        G[SentenceTransformers\nEmbedder]:::model
+        H[LightGBM ML Model\nclassifier.joblib]:::model
+    end
+
+    subgraph "Remediation Engine"
+        I[GenAI Module\nsuggestions.py]:::engine
+        J((Google Gemini 2.5\nFlash API)):::external
+    end
+
+    subgraph "Storage"
+        K[(data/ingested_cowrie.jsonl)]:::db
+    end
+
+    A -- Uploads Batch --> C
+    B -- Submits Raw Command --> C
+
+    C -- POST /ingest/cowrie --> D
+    C -- POST /classify --> D
+
+    D -- Extracts Command --> E
+
+    E --> F
+    F -- No Match --> G
+    G -- Vector Embeddings --> H
+    H -- Prediction Label --> I
+    F -- Match Found --> I
+
+    I -- Prompt --> J
+    J -- JSON Recommendations --> I
+
+    I -- Enriched Threat Report --> D
+
+    D -- Appends Result --> K
+    D -- JSON Response --> C

@@ -27,8 +27,8 @@ Additionally, the engine provides an automated playbooking system powered by **G
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/your-username/threat-nexus-honeypot.git
-   cd threat-nexus-honeypot
+    git clone git@github.com:Advay004/honeypot-ml.git
+
    ```
 
 2. **Create a Virtual Environment (Highly Recommended):**
