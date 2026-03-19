@@ -2,7 +2,7 @@
 
 Threat Nexus is an AI-driven, advanced cybersecurity honeypot log classifier and remediation engine. By leveraging a high-performance **LightGBM** and **TF-IDF/Sentence-Transformers** classification pipeline, it securely inspects and categorizes incoming threats, such as *Privilege Escalation*, *Data Exfiltration*, *Malware Downloads*, and *Brute Force* attacks.
 
-Additionally, the engine provides an automated playbooking system powered by **Google's Gemini 2.5 Flash API**, designed to emit detailed threat intelligence summaries and actionable tactical defense recommendations in real time.
+Additionally, the engine provides an automated playbooking system powered by a dual-AI backend (**Google Gemini 2.5 Flash** and **OpenAI ChatGPT**), designed to emit unified, detailed threat intelligence summaries and actionable tactical defense recommendations in a customer-friendly format in real time.
 
 ---
 
@@ -10,7 +10,7 @@ Additionally, the engine provides an automated playbooking system powered by **G
 
 - **Multi-Vector AI Classification:** Accurately identities major cyberattack patterns including `lateral_movement`, `data_exfiltration`, `privilege_escalation`, `reverse_shell`, `reconnaissance`, and more.
 - **FastAPI Backend Pipeline:** Provides highly scalable REST endpoints (`/classify` for single events, `/ingest/cowrie` for batch inputs) for seamless integration with active honeypot nodes (like Cowrie).
-- **Gemini Threat Intelligence:** Generates dynamic, AI-tailored cybersecurity response actions and severity scores based on intercepted attacker commands.
+- **Dual AI Threat Intelligence (Gemini + ChatGPT):** Generates unified, dynamic, and easy-to-understand cybersecurity response actions seamlessly combined from both leading AI models.
 - **Premium User Interface (Streamlit):** Features a sleek, modern, dark-mode glassmorphism dashboard to manually investigate vectors, upload localized jsonl Cowrie logs, or monitor simulated live security streams.
 
 ---
@@ -18,7 +18,7 @@ Additionally, the engine provides an automated playbooking system powered by **G
 ## 🛠️ Tech Stack
 - **Backend Core:** FastAPI, Uvicorn, Python 3.12 
 - **Machine Learning:** Scikit-Learn, LightGBM, Pandas, Joblib, SentenceTransformers (Optional but recommended)
-- **Generative AI Automation:** `google-genai` pip package (Gemini 2.5 Flash)
+- **Generative AI Automation:** `google-genai` and `requests` (for Gemini and ChatGPT integrations)
 - **Frontend App:** Streamlit 
 
 ---
@@ -40,15 +40,16 @@ Additionally, the engine provides an automated playbooking system powered by **G
 3. **Install Dependencies:**
    ```bash
    pip install -r requirements.txt
-   pip install google-genai  # Optional: For Gemini Recommendations
+   pip install google-genai requests  # Optional: For Dual AI Recommendations
    ```
 
 4. **Environment Configuration:**
-   Create a `.env` file in the root directory and add your Google Gemini API Key:
+   Create a `.env` file in the root directory and add your API keys:
    ```env
-   GEMINI_API_KEY=your_actual_key_here
+   GEMINI_API_KEY=your_actual_gemini_key_here
+   OPENAI_API_KEY=your_actual_openai_key_here
    ```
-   *(If no API key is provided, the platform gracefully degrades to an offline, hardcoded ruleset default).*
+   *(If both API keys are omitted or offline, the platform gracefully degrades to an offline, highly customer-friendly hardcoded ruleset).*
 
 ---
 

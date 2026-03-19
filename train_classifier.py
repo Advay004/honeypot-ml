@@ -74,22 +74,22 @@ def main():
         # save which embedder we used
         with open(os.path.join(MODEL_DIR, "embedder_name.txt"), "w") as f:
             f.write(EMBEDDER_NAME)
-    else:
-        # fallback: simple TF-IDF (not ideal but works if embeddings unavailable)
-        from sklearn.feature_extraction.text import TfidfVectorizer
-        tfidf = TfidfVectorizer(ngram_range=(1,3), max_features=20000)
-        X_train_emb = tfidf.fit_transform(X_train)
-        X_test_emb = tfidf.transform(X_test)
-        joblib.dump(tfidf, os.path.join(MODEL_DIR, "tfidf_vectorizer.joblib"))
-        print("Saved TF-IDF vectorizer as fallback.")
+    # else:
+    #     # fallback: simple TF-IDF (not ideal but works if embeddings unavailable)
+    #     from sklearn.feature_extraction.text import TfidfVectorizer
+    #     tfidf = TfidfVectorizer(ngram_range=(1,3), max_features=20000)
+    #     X_train_emb = tfidf.fit_transform(X_train)
+    #     X_test_emb = tfidf.transform(X_test)
+    #     joblib.dump(tfidf, os.path.join(MODEL_DIR, "tfidf_vectorizer.joblib"))
+    #     print("Saved TF-IDF vectorizer as fallback.")
 
     # classifier
     if LGB_AVAILABLE:
         clf = lgb.LGBMClassifier(n_estimators=500, n_jobs=-1, random_state=42)
         clf.fit(X_train_emb, y_train)
-    else:
-        clf = RandomForestClassifier(n_estimators=300, n_jobs=-1, random_state=42)
-        clf.fit(X_train_emb, y_train)
+    # else:
+    #     clf = RandomForestClassifier(n_estimators=300, n_jobs=-1, random_state=42)
+    #     clf.fit(X_train_emb, y_train)
 
     # evaluate
     preds = clf.predict(X_test_emb)
