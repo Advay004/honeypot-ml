@@ -123,8 +123,16 @@ with col1:
                     if res.status_code == 200:
                         data = res.json()
                         st.markdown(f"### 🚨 Vector: `{data['attack_type'].upper().replace('_', ' ')}`")
-                        st.info(f"**Intelligence Summary:**\n{data['summary']}")
-                        st.success("**Tactical Defense Plan:**\n" + "\n".join([f"- {r}" for r in data["recommendations"]]))
+                        
+                        scol1, scol2 = st.columns(2)
+                        with scol1:
+                            st.info(f"**Intelligence Summary:**\n{data.get('summary', 'No summary')}")
+                            st.success("**Tactical Defense Plan:**\n" + "\n".join([f"- {r}" for r in data.get("recommendations", [])]))
+                        with scol2:
+                            st.warning(f"**Technical Analysis:**\n{data.get('expert_summary', 'Not available')}")
+                            exp_recs = data.get("expert_recommendations", [])
+                            if exp_recs:
+                                st.error("**Countermeasures:**\n" + "\n".join([f"- {r}" for r in exp_recs]))
                     else:
                         st.error("API Error. Ensure FastAPI is running.")
                 except Exception as e:
@@ -173,8 +181,16 @@ with col2:
                     
                     with st.expander(f"🔴 [{label}] - {cmd_extracted[:40]}..."):
                         st.markdown(f"**Command:** `{cmd_extracted}`")
-                        st.info(r.get("summary", "No summary"))
-                        recs = r.get("recommendations", [])
-                        if recs:
-                            st.success("\n".join([f"- {x}" for x in recs]))
+                        
+                        scol1, scol2 = st.columns(2)
+                        with scol1:
+                            st.info(r.get("summary", "No summary"))
+                            recs = r.get("recommendations", [])
+                            if recs:
+                                st.success("\n".join([f"- {x}" for x in recs]))
+                        with scol2:
+                            st.warning(r.get("expert_summary", "No technical summary available"))
+                            exp_recs = r.get("expert_recommendations", [])
+                            if exp_recs:
+                                st.error("\n".join([f"- {x}" for x in exp_recs]))
 

@@ -37,8 +37,10 @@ async def predict_logs(payload: PredictRequest):
             "log": e.log,
             "label": res["label"],
             "confidence": res["confidence"],
-            "summary": res["suggestion"]["summary"],
-            "recommendations": res["suggestion"]["recommendations"],
+            "summary": res["suggestion"].get("summary", ""),
+            "recommendations": res["suggestion"].get("recommendations", []),
+            "expert_summary": res["suggestion"].get("expert_summary", ""),
+            "expert_recommendations": res["suggestion"].get("expert_recommendations", []),
             "source": res.get("source")
         })
     return {"results": results}
@@ -50,8 +52,10 @@ async def classify_single(payload: dict):
     res = classify_log(log)
     return {
         "attack_type": res["label"],
-        "summary": res["suggestion"]["summary"],
-        "recommendations": res["suggestion"]["recommendations"]
+        "summary": res["suggestion"].get("summary", ""),
+        "recommendations": res["suggestion"].get("recommendations", []),
+        "expert_summary": res["suggestion"].get("expert_summary", ""),
+        "expert_recommendations": res["suggestion"].get("expert_recommendations", [])
     }
 
 # Cowrie ingestion endpoint
@@ -117,7 +121,9 @@ async def ingest_cowrie(request: Request):
                 "confidence": 0.0,
                 "suggestion": {
                     "summary": "Cowrie event does not contain an attacker command",
-                    "recommendations": []
+                    "recommendations": [],
+                    "expert_summary": "Ignored due to insufficient payload context.",
+                    "expert_recommendations": []
                 }
             }
         else:
@@ -128,8 +134,10 @@ async def ingest_cowrie(request: Request):
             "attack_type": res["label"],
             "extracted_command": cmd or "<non-command-event>",
             "confidence": res["confidence"],
-            "summary": res["suggestion"]["summary"],
-            "recommendations": res["suggestion"]["recommendations"]
+            "summary": res["suggestion"].get("summary", ""),
+            "recommendations": res["suggestion"].get("recommendations", []),
+            "expert_summary": res["suggestion"].get("expert_summary", ""),
+            "expert_recommendations": res["suggestion"].get("expert_recommendations", [])
         }
 
         results.append(out)

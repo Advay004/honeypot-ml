@@ -15,7 +15,7 @@ client = None
 if GEMINI_API_KEY:
     client = genai.Client(api_key=GEMINI_API_KEY)
 
-# Define a fallback dictionary that is highly customer friendly
+# Define a fallback dictionary that is highly customer friendly AND technical
 FALLBACK_SUGGESTIONS = {
     "malware_download": {
         "summary": "Someone tried to download a harmful file (like a virus) onto your system to cause trouble.",
@@ -23,6 +23,12 @@ FALLBACK_SUGGESTIONS = {
             "Block access to known unsafe websites.",
             "Use antivirus software to scan and remove any bad files.",
             "Make sure your system doesn't allow strangers to run programs."
+        ],
+        "expert_summary": "Detected an unauthorized inbound file transfer attempt indicative of a second-stage malware payload drop.",
+        "expert_recommendations": [
+            "Implement strict egress filtering to block outbound connections to untrusted autonomous systems.",
+            "Audit execution permissions in world-writable directories (/tmp, /dev/shm) via AppArmor/SELinux.",
+            "Review firewall rules and quarantine offending IPs at the perimeter via automated WAF/IPS integration."
         ]
     },
     "unknown": {
@@ -30,13 +36,18 @@ FALLBACK_SUGGESTIONS = {
         "recommendations": [
             "Keep a close eye on your system for any strange behavior.",
             "Make sure all your software is fully updated to stay safe."
+        ],
+        "expert_summary": "Unclassified anomalous command sequence detected deviating from strictly modeled baseline behavior.",
+        "expert_recommendations": [
+            "Perform deep forensic analysis of the captured process tree and raw network PCAP data.",
+            "Triage via memory forensics if necessary and feed the telemetry back into the ML classifier for retraining."
         ]
     }
 }
 
 def call_chatgpt_api(label):
     """
-    Calls OpenAI's ChatGPT API to get an easily understood suggestion.
+    Calls OpenAI's ChatGPT API to get both a naive and expert suggestion.
     """
     if not OPENAI_API_KEY:
         return None
@@ -48,8 +59,15 @@ def call_chatgpt_api(label):
     }
     
     prompt = f"""
-    You are a friendly, helpful cybersecurity assistant. Explain the cyber attack '{label}' in very simple terms for beginners.
-    Respond with ONLY valid JSON containing 'summary' (a very simple explanation) and 'recommendations' (a list of 3 simple tips).
+    You are a dual-persona cybersecurity assistant. An attack of type '{label}' has been detected.
+    1. Explain the attack in very simple terms for beginners.
+    2. Explain the attack in highly technical terms for an experienced security engineer.
+    
+    Respond with ONLY valid JSON containing:
+    'summary' (a very simple explanation),
+    'recommendations' (a list of 3 simple tips),
+    'expert_summary' (a highly technical, expert-level analysis of the attack mechanics),
+    'expert_recommendations' (a list of 3 highly technical, advanced countermeasures).
     """
     payload = {
         "model": "gpt-3.5-turbo",
@@ -77,9 +95,9 @@ def call_chatgpt_api(label):
 
 def get_suggestion(label):
     prompt = f"""
-    You are a friendly, helpful, and customer-centric cybersecurity assistant. 
-    An attack of type '{label}' has been detected. 
-    Explain this attack in very simple, easy-to-understand terms that a non-technical person can easily grasp. Avoid technical jargon.
+    You are a dual-persona cybersecurity intelligence agent. An attack of type '{label}' has been detected. 
+    1. Explain the attack in very simple, easy-to-understand terms for a non-technical person.
+    2. Explain the attack in highly technical, low-level terms for a seasoned cybersecurity engineer.
     
     You MUST respond with ONLY a valid JSON object matching this exact structure:
     {{
@@ -88,6 +106,12 @@ def get_suggestion(label):
             "Easy to understand recommendation 1",
             "Easy to understand recommendation 2",
             "Easy to understand recommendation 3"
+        ],
+        "expert_summary": "Highly technical, low-level analysis of the attack vector, tooling, and potential impact.",
+        "expert_recommendations": [
+            "Technical, advanced countermeasure 1 (e.g. firewall rule, kernel hardening)",
+            "Technical, advanced countermeasure 2",
+            "Technical, advanced countermeasure 3"
         ]
     }}
     """
@@ -117,36 +141,54 @@ def get_suggestion(label):
     # Combine results
     combined_summary = ""
     combined_recs = []
+    combined_expert_summary = ""
+    combined_expert_recs = []
     
     if gemini_data:
         combined_summary += gemini_data.get('summary', '').strip()
         combined_recs.extend(gemini_data.get('recommendations', []))
+        combined_expert_summary += gemini_data.get('expert_summary', '').strip()
+        combined_expert_recs.extend(gemini_data.get('expert_recommendations', []))
         
     if chatgpt_data:
         if combined_summary:
             combined_summary += " Additionally, " + chatgpt_data.get('summary', '').strip()
         else:
             combined_summary += chatgpt_data.get('summary', '').strip()
+            
         combined_recs.extend(chatgpt_data.get('recommendations', []))
         
+        if combined_expert_summary:
+            combined_expert_summary += " Furthermore, " + chatgpt_data.get('expert_summary', '').strip()
+        else:
+            combined_expert_summary += chatgpt_data.get('expert_summary', '').strip()
+            
+        combined_expert_recs.extend(chatgpt_data.get('expert_recommendations', []))
+        
     # If both failed, use fallback
-    if not combined_summary:
+    if not combined_summary and not combined_expert_summary:
         fallback = FALLBACK_SUGGESTIONS.get(label, {
             "summary": f"We detected some unusual activity related to '{label}' that needs attention.",
-            "recommendations": ["Seek help from a security expert.", "Check your system logs.", "Update your passwords."]
+            "recommendations": ["Seek help from a security expert.", "Check your system logs.", "Update your passwords."],
+            "expert_summary": f"Anomalous telemetry detected associated with the '{label}' archetype requiring manual review.",
+            "expert_recommendations": ["Initiate incident response protocol.", "Isolate the compromised segment.", "Retain logs for evidentiary analysis."]
         })
         return fallback
 
     # Deduplicate recommendations simply by ignoring case
-    unique_recs = []
-    seen = set()
-    for rec in combined_recs:
-        lower_rec = rec.lower().strip()
-        if lower_rec not in seen:
-            seen.add(lower_rec)
-            unique_recs.append(rec)
+    def deduplicate(recs):
+        unique = []
+        seen = set()
+        for r in recs:
+            lr = r.lower().strip()
+            if lr not in seen:
+                seen.add(lr)
+                unique.append(r)
+        return unique
             
     return {
         "summary": combined_summary,
-        "recommendations": unique_recs
+        "recommendations": deduplicate(combined_recs),
+        "expert_summary": combined_expert_summary,
+        "expert_recommendations": deduplicate(combined_expert_recs)
     }
